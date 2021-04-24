@@ -3,21 +3,18 @@
 	Versión inicial de nuestra aplicación de aula virtual.
 	Página INDEX (INICIO)
 !-->
+<?php 
+$title = 'Educalegre Version Alpha';
+include 'secciones/header.php';
+?>
 
-<html>
-	<!--Añadir los meta los estandares el language y cosas necesarias para un aspecto más profesional-->
-	<head>
-		<title>Inicio - Educalegre</title>
-		<!--<style></style>-->
-	</head>
-	<body background = "red">
+	<body>
 		<!--Inclusión de archivos en la carpeta "secciones"-->
-		<?php include 'secciones/header.html';?>
+	
 		<?php include 'secciones/nav.html';?>
 		<!--Inclusión de archivos en la carpeta "secciones"-->
-		<section>
-			<div>
-				<form align = "center">
+		<section>				
+				<form class="form">
 					<div border = "1">
 						Tipo de usuario
 						<select name = "tipo_usu_section_index">
@@ -35,6 +32,6 @@
 			</div>
 		</section>
 		<!--Inclusión de archivos en la carpeta "secciones"-->
-		<?php include 'secciones/footer.html';?>
+		<?php include 'secciones/footer.php';?>
 	</body>
 </html>

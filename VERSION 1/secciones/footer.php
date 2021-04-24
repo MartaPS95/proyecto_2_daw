@@ -4,6 +4,9 @@
 -->
 <footer>
 	<div>
-		<p>FOOTER</p>
+		<?php
+		setlocale(LC_TIME,"es_ES");
+		echo strftime("Hoy es %A del mes %B del año %Y");
+		?>
 	</div>
 </footer>
