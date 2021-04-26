@@ -7,22 +7,20 @@
 $title = 'Educalegre Version Alpha';
 include 'secciones/header.php';
 ?>
-
 	<body>
 		<!--Inclusión de archivos en la carpeta "secciones"-->
-	
 		<?php include 'secciones/nav.html';?>
 		<!--Inclusión de archivos en la carpeta "secciones"-->
 		<section>				
-				<form class="form">
+				<form class="form" action = "php/acceso.php" method = "POST">
 					<div border = "1">
 						Tipo de usuario
 						<select name = "tipo_usu_section_index">
 							<option value = "tipo_usu_alumno">Alumno</option>
-							<option value = "tipo_usu_alumno">Profesor</option>
+							<option value = "tipo_usu_profesor">Profesor</option>
 						</select><br>
 						Nombre usuario: <input type = "text" name = "usu_acceso" placeholder = "nombre de usuario"/><br>
-						Contraseña: <input type = "pass_acceso" name = "" placeholder = "contraseña"/><br>
+						Contraseña: <input type = "password" name = "usu_pass" placeholder = "contraseña"/><br>
 						<input type = "submit" name = "acceso_user_index" value = "Acceder"/>
 						<input type = "reset" name = "reseteo_datos_index" value = "Borrar"/><br>
 						<a href = "#">¿Has olvidado tu usuario o contraseña?</a><br><!--Enlace sin destino-->

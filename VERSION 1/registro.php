@@ -2,6 +2,9 @@
 	EDUCALEGRE V1.0
 	Versión inicial de nuestra aplicación de aula virtual.
 	Página REGISTRO
+	Modificaciones 26/04/2021 [Marta PS]
+		-- Añadir action y method al formulario --: alta en bbdd con php INSERT
+		-- Boton verificar --: validar con Js.
 !-->
 <?php 
 $title = 'Educalegre Registro';
@@ -11,9 +14,11 @@ include 'secciones/nav.html';
 <!--Inclusión de archivos en la carpeta "secciones"-->
 <section>
 	<div>
-		<form class="form">
+		<!--Añadimos la acción de formulario para verificar y dar de alta al usuario-->
+		<!--Verificar con javascript y una ventana, dar de alta con php insertando en una base de datos-->
+		<form class="form" action = "php/alta_usuario.php" method = "POST">
 			Tipo de usuario
-			<select name="tipo_usu_section_index">
+			<select name="tipo_usu_section_reg">
 				<option value="tipo_usu_alumno_reg">Alumno</option>
 				<option value="tipo_usu_profesor_reg">Profesor</option>
 			</select><br>
@@ -26,17 +31,16 @@ include 'secciones/nav.html';
 			<input type="checkbox" name="terms_usu_reg">Terminos y condiciones</input></br>
 			<a href="#">Leer terminos y condiciones de uso</a></br>
 			<!--Enlace sin destino-->
-			<input type="submit" name="verifica_user_reg" value="Verificar" />
+			<input type="button" name="verifica_user_reg" value="Verificar" /><!--Button, verificar con Javascript-->
 			<!--Este boton valida toda la información-->
 			<input type="submit" name="alta_user_reg" value="Darse de alta" />
 			<input type="reset" name="reseteo_datos_reg" value="Borrar" /><br>
-
 		</form>
 	</div>
 </section>
-<!--Ancla provisional de regreso-->
-<a href="index.php">Ir a la página de inicio</a>
-<!--Inclusión de archivos en la carpeta "secciones"-->
-<?php include 'secciones/footer.php';?>
-</body>
+	<!--Ancla provisional de regreso-->
+	<a href="index.php">Ir a la página de inicio</a>
+	<!--Inclusión de archivos en la carpeta "secciones"-->
+	<?php include 'secciones/footer.php';?>
+	</body>
 </html>
