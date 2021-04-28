@@ -6,7 +6,9 @@
 	<div>
 		<?php
 		setlocale(LC_TIME,"es_ES");
-		echo strftime("Hoy es %A del mes %B del año %Y");
+		#Correción del problema a la hora de mostrar la fecha en español
+		echo utf8_encode(strftime("Hoy es %A del mes %B "));
+		echo strftime("del año %Y");
 		?>
 	</div>
 </footer>

@@ -24,7 +24,7 @@ include 'secciones/header.php';
 						<input type = "submit" name = "acceso_user_index" value = "Acceder"/>
 						<input type = "reset" name = "reseteo_datos_index" value = "Borrar"/><br>
 						<a href = "#">¿Has olvidado tu usuario o contraseña?</a><br><!--Enlace sin destino-->
-						<a href = "registro.php">¿Eres nuevo? Registrate aquí</a><br>
+						<a href = "registro.php">¿Eres nuevo? Regístrate aquí</a><br>
 					</div>
 				</form>
 			</div>
