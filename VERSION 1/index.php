@@ -9,7 +9,6 @@
 	include 'secciones/nav.html';
 ?>
 	<body>
-		
 		<main>
 			<section>	
 				<div>
