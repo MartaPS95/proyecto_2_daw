@@ -5,28 +5,24 @@
 !-->
 <?php 
 $title = 'Educalegre Version Alpha';
-//Header para la página de alumnos
-#include 'secciones/header.php';
+	//Header para la página de alumnos
+	include 'secciones/header.php';
+	include 'secciones/nav.html';
 ?>
 <html>
 	<body>
-		<!--Inclusión de archivos en la carpeta "secciones"-->
-		<nav>
-			<div align = "right">
-				Nombre_alumno	
-				Campanita
-				Foto perfil (menú desplegable)
-			</div>
-		</nav>
-		<?php include 'secciones/nav.html';?>
-		<!--Inclusión de archivos en la carpeta "secciones"-->
-		<section>				
+		<main>
+			<section>
 				BIENVENIDO ALUMNO
-		</section>
-		<a href = "index.php">Volver a inicio</a><!--Provisional
-		<!--Inclusión de archivos en la carpeta "secciones"-->
-		<?php 
-			//Header para la página de alumnos
-		//include 'secciones/footer.php';?>
+				<div align = "right">
+					Nombre_alumno	
+					Campanita
+					Foto perfil (menú desplegable)
+				</div>	
+				Esto es el area de trabajo del alumno	
+			</section>
+			<a href = "index.php">Volver a inicio</a>
+			<?php include 'secciones/footer.php';?>
+		</main>
 	</body>
 </html>
