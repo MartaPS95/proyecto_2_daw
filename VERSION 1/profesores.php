@@ -4,32 +4,18 @@
 	Página INDEX (INICIO)
 !-->
 <?php 
-$title = 'Educalegre Version Alpha';
-//Header para la página de alumnos
-#include 'secciones/header.php';
+$title = 'Educalegre Profesores';
+	//Header para la página de alumnos
+	include 'secciones/header.php';
+	include 'secciones/nav_usuarios.php';
 ?>
-<html>
 	<body>
-		<!--Inclusión de archivos en la carpeta "secciones"-->
-		<nav>
-			<div align = "right">
-				Nombre_profesor	
-				Campanita
-				Foto perfil (menú desplegable)
-			</div>
-		</nav>
-		<?php include 'secciones/nav.html';?>
-		<!--Inclusión de archivos en la carpeta "secciones"-->
-		<section>				
-				BIENVENIDO PROFESOR <!--Nombre del profesor-->
-				<!--Mostrar los paneles etc.-->
-		</section>
-		<a href = "index.php">Volver a inicio</a><!--Provisional
-		<!--Inclusión de archivos en la carpeta "secciones"-->
-		
-		<?php 
-			//Header para la página de alumnos
-		//include 'secciones/footer.php';
-		?>
+		<main>
+			<section>
+				BIENVENIDO PROFESOR<br>
+				Esto es el area de trabajo del profesor	
+			</section>
+		</main>
+		<?php include 'secciones/footer.php';?>
 	</body>
 </html>

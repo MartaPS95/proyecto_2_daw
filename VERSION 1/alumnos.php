@@ -4,25 +4,18 @@
 	Página INDEX (INICIO)
 !-->
 <?php 
-$title = 'Educalegre Version Alpha';
+	$title = 'Educalegre Alumnos';
 	//Header para la página de alumnos
 	include 'secciones/header.php';
-	include 'secciones/nav.html';
+	include 'secciones/nav_usuarios.php';
 ?>
-<html>
 	<body>
 		<main>
 			<section>
-				BIENVENIDO ALUMNO
-				<div align = "right">
-					Nombre_alumno	
-					Campanita
-					Foto perfil (menú desplegable)
-				</div>	
+				BIENVENIDO ALUMNO><br>
 				Esto es el area de trabajo del alumno	
 			</section>
-			<a href = "index.php">Volver a inicio</a>
-			<?php include 'secciones/footer.php';?>
 		</main>
+		<?php include 'secciones/footer.php';?>
 	</body>
 </html>

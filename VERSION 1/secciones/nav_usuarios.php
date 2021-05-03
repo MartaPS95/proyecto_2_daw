@@ -41,13 +41,12 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
           <a href = "#">
-            <strong>Nombre y apellidos usuario</strong>
+            <strong>Nombre y apellidos usuario  </strong>
           </a>
-          <a href="#"class="button is-primary is-rounded">
-            Cerrar sesión
-          </a>
+          <div class = "buttons">
+            <a href="index.php"class="button is-secondary">Cerrar sesión</a>
+          </div>
         </div>
       </div>
     </div>
