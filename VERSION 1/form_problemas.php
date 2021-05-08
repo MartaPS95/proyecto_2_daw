@@ -18,9 +18,8 @@
 						<div class = "control">
 							<div class = "select is-rounded">
 								<select name = "tipo_contacto">
-									<option value = "tipo_contacto_soporte">Soporte</option>
-									<option value = "tipo_contacto_consulta">Consultas</option>
-									<option value = "tipo_contacto_admin">Administrador</option>
+									<option value = "tipo_contacto_soporte">Soporte(soporteweb@educalegre.com)</option>
+									<option value = "tipo_contacto_admin">Administrador(adminweb@educalegre.com)</option>
 								</select>
 							</div>
 						</div>
