@@ -12,7 +12,7 @@
 		<main>
 			<section>	
 				<h1 class="title is-1">Bienvenido a Educalegre</h1>			
-				<form class="form_login" action = "php/acceso.php" method = "POST">
+				<form id = "forms" class="form_login" action = "php/acceso.php" method = "POST">
 					<div class="field">
 						<label class="label">Tipo de usuario</label>
 						<div class="control">
