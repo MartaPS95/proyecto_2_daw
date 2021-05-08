@@ -1,28 +1,41 @@
-<!--
-	MARTA PARRA SÁEZ
-	Aquí se podría hacer un pop up o una ventana en una nueva pestaña
-	Asegurarnos de volver a la última página que estabamos
--->
-<html>
-	<head>
-		<title>Formulario de contacto</title>
-	</head>
+<!--MARTA PARRA SÁEZ
+	EDUCALEGRE V1.0
+	Versión inicial de nuestra aplicación de aula virtual.
+	Página INDEX (INICIO)
+!-->
+<?php 
+	$title = 'Formulario de contacto';
+	include 'secciones/header.php';
+	include 'secciones/nav.html';
+?>
 	<body>
-		<form>
-			<p>Contacto online</p>
-			Nombre: <input type = "text" name = "nom_usu_contacto"></br>
-			Correo: <input type = "text" name = "email_usu_contacto"></br> <!--O pornerlo de tipo email para validación-->
-			Contactar con
-				<select name = "tipo_contacto">
-					<option value = "tipo_contacto_soporte">Soporte</option>
-					<option value = "tipo_contacto_consulta">Consultas</option>
-					<option value = "tipo_contacto_admin">Administrador</option>
-				</select><br>
-			<p>Teléfono de contacto: 11111-11111</p><!--Incluir icono de teléfono-->
-			<!--Añadir un text area o mostrarlo después de escribir comentario de usuario cliente-->
-			<input type = "submit" name = "enviar_comentario" value = "Iniciar consulta">
-			<input type = "reset" name = "borrar_info_contacto" value = "Borrar"></br>
-			<a href = "index.php">Volver a inicio</a><!--Provisional-->
-		</form>
+		<main>
+			<section>	
+				<h1 class="title is-1">Contacto online</h1>			
+				<form class="form_contact">
+					<div class = "field">
+						<label class = "label">Nombre</label>
+						<input class = "input" type = "text" name = "nom_usu_contacto"></br>
+					</div>
+					<div class = "field">
+						<label class = "label">Correo</label>
+						<input class = "input" type = "text" name = "email_usu_contacto"></br>
+					</div>
+					<div>
+						<label class = "label">Consulta</label>
+						<textarea class="textarea" placeholder="Escriba aquí su consulta"></textarea>
+					</div>
+					<div class = "field">
+						<label class = "label">Teléfono de contacto: 11111-11111</label>
+					</div>
+					<div class = "field is-grouped">
+						<!--Añadir un text area o mostrarlo después de escribir comentario de usuario cliente-->
+						<input class = "button is-link" type = "submit" name = "enviar_comentario" value = "Iniciar consulta">
+						<input class = "button is-link is-light" type = "reset" name = "borrar_info_contacto" value = "Borrar">
+					</div>
+				</form>
+			</section>
+		</main>
+		<?php include 'secciones/footer.php';?>
 	</body>
 </html>

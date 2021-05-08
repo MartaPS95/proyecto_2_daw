@@ -3,31 +3,45 @@ body{
   min-height: 100vh;
   grid-template-rows: 4rem 1fr 4rem;
 }
+/*CLASE definida para el formulario de acceso: index.php[login]*/
 .form_login
 {
-  background-color: white;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  width: 25rem;
-  height: 25rem;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid black;
-  padding: 2rem;
+	background-color: white;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+	width: 25rem;
+	height: 25rem;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	padding: 2rem;
+}
+/*CLASE definida para formulario de registro: registro.php[Registro]*/
+.form_reg
+{
+	background-color: white;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+	margin-right: 5rem;
+	width: 30rem;
+	height: 25rem;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	padding: 2rem;
 }
 
-.form_reg 
+.form_contact
 {
-  background-color: white;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  margin-right: 5rem;
-  width: 30rem;
-  height: 25rem;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid black;
-  padding: 2rem;
+	background-color: white;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+	width: 25rem;
+	height: 30rem;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	padding: 2rem;
 }
 
 h1{
