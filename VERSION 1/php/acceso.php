@@ -16,6 +16,7 @@
 			return true;
 		return false;
 	}
+	//Determinar que los campos del formulario no estén vacíos
 	function noVacio($username, $pass)
 	{
 		if(strlen($username) != 0 && strlen($pass) != 0)

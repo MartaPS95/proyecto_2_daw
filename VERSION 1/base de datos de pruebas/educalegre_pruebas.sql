@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-05-2021 a las 11:48:49
+-- Tiempo de generación: 08-05-2021 a las 17:25:09
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -33,8 +33,16 @@ CREATE TABLE `alumnos` (
   `nombre` varchar(30) DEFAULT NULL,
   `apellidos` varchar(30) DEFAULT NULL,
   `correo` varchar(30) DEFAULT NULL,
-  `username` varchar(30) DEFAULT NULL
+  `username` varchar(30) DEFAULT NULL,
+  `contraseña` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `alumnos`
+--
+
+INSERT INTO `alumnos` (`id_alum`, `nombre`, `apellidos`, `correo`, `username`, `contraseña`) VALUES
+(1, 'alumno', 'prueba', 'alumno.prueba@educalegre.com', 'alumno.prueba', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 
 -- --------------------------------------------------------
 
@@ -47,8 +55,16 @@ CREATE TABLE `profesores` (
   `nombre` varchar(30) DEFAULT NULL,
   `apellidos` varchar(30) DEFAULT NULL,
   `correo` varchar(30) DEFAULT NULL,
-  `username` varchar(30) DEFAULT NULL
+  `username` varchar(30) DEFAULT NULL,
+  `contraseña` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `profesores`
+--
+
+INSERT INTO `profesores` (`id_prof`, `nombre`, `apellidos`, `correo`, `username`, `contraseña`) VALUES
+(1, 'profesor', 'prueba', 'profesor.prueba@educalegre.com', 'profesor.prueba', '99800b85d3383e3a2fb45eb7d0066a4879a9dad0');
 
 --
 -- Índices para tablas volcadas
@@ -74,13 +90,13 @@ ALTER TABLE `profesores`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `id_alum` mediumint(9) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_alum` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `profesores`
 --
 ALTER TABLE `profesores`
-  MODIFY `id_prof` mediumint(9) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_prof` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

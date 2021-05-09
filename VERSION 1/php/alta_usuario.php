@@ -64,6 +64,7 @@
 		{
 			$contraseña = $_POST['pass_reg'];
 			insertarUser($nombre, $apellidos, $correo, $username, $contraseña, $tabla, $con);
+			echo "USUARIO DADO DE ALTA";
 		}
 		else
 			echo "ERROR EN ALTA";	//Mostraremos una ventana indicándonos el error de que el usuario ya existe

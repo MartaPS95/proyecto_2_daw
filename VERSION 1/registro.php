@@ -41,7 +41,7 @@ include 'secciones/nav.html';
 						</div>
 						<div class = "field">
 							<label class = "label">Correo</label> 
-							<input class = "input" type = "email" name = "correo_reg" placeholder = "usuario@gmail.com"/><br>
+							<input class = "input" type = "email" name = "correo_reg" placeholder = "usuario@educalegre.com"/><br>
 						</div>
 					</div>
 					<div class="column">	<!--Segunda mitad-->

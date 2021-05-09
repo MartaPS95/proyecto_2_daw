@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class = "field">
-						<label class = "label">Nombre usuario</label> 
+						<label class = "label">Nombre de usuario</label> 
 						<input class = "input" type = "text" name = "usu_acceso" placeholder = "nombre de usuario"/><br>
 					</div>
 					<div class = "field">
@@ -36,7 +36,7 @@
 						<input class = "button is-link" type = "submit" name = "acceso_user_index" value = "Acceder"/>
 						<input class = "button is-link is-light" type = "reset" name = "reseteo_datos_index" value = "Borrar"/><br>
 					</div>
-					<a href = "#">¿Has olvidado tu usuario o contraseña?</a><br><!--Enlace sin destino-->
+					<a href = "cambio_pass.php">¿Has olvidado tu usuario o contraseña?</a><br><!--Enlace sin destino-->
 				</form>
 			</section>
 		</main>
