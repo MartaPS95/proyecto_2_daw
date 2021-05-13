@@ -1,17 +1,17 @@
 <!--MARTA PARRA SÁEZ
-	EDUCALEGRE V1.0
-	Versión inicial de nuestra aplicación de aula virtual.
-	Página REGISTRO
-	Modificaciones 26/04/2021 [Marta PS]
-		-- Añadir action y method al formulario --: alta en bbdd con php INSERT
-		-- Boton verificar --: validar con Js.
+	Página REGISTRO (registro.php)
+	Esta página aplica un formulario de registro de usuario. En este caso nos solicita tipo de usuario, nombre, apellidos, correo
+	username, contraseña y confirmación de la misma, un checkbox de aceptación de terminos y condiciones de uso. Finalmente nuestro
+	submit de alta que nos llevará a comprobar la información y registrar nuestro usuario en la base de datos si todo funciona como
+	es debido.
 !-->
 <?php 
+//Mostrar contenido de header y nav
 $title = 'Educalegre Registro';
 include 'secciones/header.php';
 include 'secciones/nav.html';
 ?>
-<!--Inclusión de archivos en la carpeta "secciones"-->
+<!--Etiqueta definida con bulma que establece el fondo de imagen de nuestra web, ubicado en estilos.css-->
 <main>
 	<section>
 		<h1 class="title is-1">Bienvenido a Educalegre</h1>
@@ -73,7 +73,9 @@ include 'secciones/nav.html';
 		</div>
 	</section>
 </main>
-	<!--Inclusión de archivos en la carpeta "secciones"-->
-	<?php include 'secciones/footer.php';?>
+	<?php 
+		//Mostrar contenido de footer
+		include 'secciones/footer.php';
+	?>
 	</body>
 </html>

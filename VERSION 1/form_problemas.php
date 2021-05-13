@@ -2,8 +2,11 @@
 	EDUCALEGRE V1.0
 	Versión inicial de nuestra aplicación de aula virtual.
 	FORMULARIO DE INFORME DE PROBLEMAS
+	Suponiendo que el usuario del tipo que sea vea que algo no funciona bien en la web, podrá generar una "incidencia" para informar
+	a soporte, que es el grupo de personas que se encarga del mantenimiento de la misma.
 !-->
 <?php 
+	//Mostrar contenido de header y nav
 	$title = 'Informar de un problema';
 	include 'secciones/header.php';
 	include 'secciones/nav.html';

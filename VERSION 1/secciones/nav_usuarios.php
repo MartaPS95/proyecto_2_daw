@@ -1,3 +1,9 @@
+<!--
+  [EN PRUEBAS]
+  Esta sección navegador se aplica principalmente en las páginas asociadas a las sesiones abiertas de nuestros usuarios, 
+  la idea sería colocar a la derecha el nombre del usuario con sesión abierta, si es posible una opción de ajustes de su página
+  y notificaciones.
+-->
 <nav class="navbar" role="navigation" aria-label="user navigation">
   <div class="navbar-brand">
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -6,12 +12,15 @@
       <span aria-hidden="true"></span>
     </a>
   </div>
+  <div>
 
+  </div>
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item">
         Inicio
       </a>
+      <!--En esta opción se podría establecer la posibilidad de descargar un archivo que contiene precidamente la documentación del proyecto-->
       <a class="navbar-item">
         Documentación
       </a>
@@ -22,6 +31,7 @@
         </a>
 
         <div class="navbar-dropdown">
+          <!--Acceso a mi repositorio de github donde se recoge más información del proyecto-->
           <a class="navbar-item" href = "https://github.com/MartaPS95/proyecto_2_daw/blob/master/README.md">
             Sobre nosotros
           </a>

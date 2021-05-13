@@ -3,7 +3,6 @@
 	- Si el usuario existe informar de error al dar de alta [query_search]
 	- Si no, continuamos y lo añadimos
 -->
-<!--Aplicar validaciones a futuro o bien un plugin de validación de bulma-->
 <?php
 	session_start();
 	//Declaracion de las funciones

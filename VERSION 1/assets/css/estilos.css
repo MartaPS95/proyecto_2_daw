@@ -2,6 +2,7 @@ body{
   display: grid;
   min-height: 100vh;
   grid-template-rows: 4rem 1fr 4rem;
+  background-color: #ffbf69; 
 }
 /*Id forms determina el aspecto general de todos los formulario existentes*/
 #forms
@@ -62,6 +63,7 @@ nav{
 footer{
   text-align: right;
   background-color: #ffbf69; 
+  font-size:1vw;
 }
 main{
   background-image: url("../img/main.jpg");

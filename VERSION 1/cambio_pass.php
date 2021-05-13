@@ -1,7 +1,8 @@
 <!--
 	En caso de que nuestro usuario olvide la contraseña acceder a un enlace que
 	le llevará a esta página donde se le pedirán unos datos para proceder al cambio
-	de su contraseña.
+	de su contraseña [EN PRUEBAS, no es el objetivo inicial de esta página, ya que hay que tener
+	en cuenta el olvido de un usuario]
 -->
 <?php
 	$title = 'Cambio de contraseña';

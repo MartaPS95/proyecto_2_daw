@@ -1,4 +1,8 @@
 <!--
+	Se codifica el acceso de usuario mediante php, tendrá en cuenta que el usuario introducido será correcto, al igual que
+	la contraseña, es decir, buscará nuestro usuario y contraseña en la base de datos, comprobará que los campos están 
+	rellenados debidamente. En caso de que se hayan los datos y el tipo de usuario correspondan a la información de nuestra
+	base de datos genera una sesión, que dependerá igualmente de ese tipo de usuario: así tendremos profesores.php y alumnos.php
 	Pruebas de acceso de usuarios a la base de datos:
 	Se están utilizando por el momento usuarios de prueba:
 	alumno.prueba
@@ -6,7 +10,7 @@
 -->
 <?php
 	session_start();
-	//Declaracion de las funciones
+	/***Declaracion de las funciones***/
 	//Buscar en la bd username y correo y verificar su existencia, ya que ninguno se puede repetir
 	function buscarUsername($username, $conexion, $tabla)
 	{
@@ -36,21 +40,22 @@
 	$tabla = obtenerTabla($tipo_usu);
 	$username = $_POST['usu_acceso'];
 	$contraseña = $_POST['usu_pass'];
-	//Establecemos la conexión a la base de datos "Educalegre" [MODO PRUEBAS]
+	//Establecemos la conexión a la base de datos "Educalegre" [MODO PRUEBAS -- educalegre_pruebas.sql]
 	$con = mysqli_connect("localhost", "root", "", "educalegre_pruebas") or die("ERROR: No se ha podido conectar con la base de datos");
 	$con->set_charset("utf8");	//Solución a los problemas con acentos y caracteres especiales.
 	//Si no ha encontrado un usuario y correo existentes y la contraseña ha sido confirmada correctamente, damos de alta
 	/*Se comprueba que no se repite el usuario y que se ha introducido una contraseña funcional*/
-	//Sólo prueba de acceso a esta página
+	//Una vez el usuario a pulsado el botón de acceso y todos los campos se hayan rellenado:
 	if(@$_POST['acceso_user_index'] == "Acceder" && noVacio($username, $contraseña))
 	{
+		//Query de busqueda del usuario en nuestra tabla (determinada por el tipo de usuario seleccionado en el formulario)
 		if(buscarUsername($username, $con, $tabla))
-			echo "ACCESO";
+			echo "ACCESO";	//Mensaje prueba acceso correcto
 		else
-			echo "USUARIO NO ENCONTRADO";	//Error al no existir el usuario en la base de datos
+			echo "USUARIO NO ENCONTRADO";	//Mensaje prueba acceso error
 	}
+	//Si ha accedido pero los campos están en blanco informa de un error
 	else
-		echo "CAMPOS VACIOS";	//Informar de este error en una ventana
-
+		echo "CAMPOS VACIOS";	//Mensaje prueba acceso error
 	mysqli_close($con);	//Cerramos la conexión
 ?>
