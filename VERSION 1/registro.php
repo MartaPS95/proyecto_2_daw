@@ -17,8 +17,8 @@ include 'secciones/nav.html';
 		<h1 class="title is-1">Bienvenido a Educalegre</h1>
 		<!--Añadimos la acción de formulario para verificar y dar de alta al usuario-->
 		<!--Verificar con javascript y una ventana, dar de alta con php insertando en una base de datos-->
-			<form id = "forms" class="form_reg" action = "php/alta_usuario.php" method = "POST">
-				<div class="columns">
+			<form id = "form_reg" class="box is-fluid" action = "php/alta_usuario.php" method = "POST">
+				<div class="columns is-mobile"> <!--Modificador in-mobile para que las columnas se muestren bien en móviles-->
 					<div class="column is-half">	<!--Primer mitad-->
 						<div class="field">
 							<label class="label">Tipo de usuario</label>

@@ -5,7 +5,49 @@ body{
   background-color: #ffbf69; 
 }
 /*Id forms determina el aspecto general de todos los formulario existentes*/
-#forms
+.box
+{
+	background-color: white;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid gray;
+	padding: 2rem;
+}
+/*Aplicamos las clases que determinan ancho y alto de cada formulario en función a su contenido*/
+#form_login
+{
+	width: 25rem;
+	height: 25rem;
+}
+/*Formulario de registro [registro.php]*/
+#form_reg
+{
+	width: 30rem;
+	height: 25rem;
+}
+/*Formulario de contacto [contacto.php]*/
+#form_contact
+{
+	width: 25rem;
+	height: 30rem;
+}
+/*Formulario de informar de un problema [form_problemas.php]*/
+#form_issues
+{
+	width: 25rem;
+	height: 22rem;
+}
+/*Formulario de cambio de contraseña [cambio_pass.php]*/
+#form_pass_change
+{
+	width: 25rem;
+	height: 34rem;
+}
+
+/*Estilo para el contenedor de área de trabajo de cada usuario*/
+#area_trabajo
 {
 	background-color: white;
 	margin-top: 5rem;
@@ -14,34 +56,6 @@ body{
 	margin-right: auto;
 	border: 1px solid black;
 	padding: 2rem;
-}
-/*Aplicamos las clases que determinan ancho y alto de cada formulario en función a su contenido*/
-.form_login
-{
-	width: 25rem;
-	height: 25rem;
-}
-/*Formulario de registro [registro.php]*/
-.form_reg
-{
-	width: 30rem;
-	height: 25rem;
-}
-/*Formulario de contacto [contacto.php]*/
-.form_contact
-{
-	width: 25rem;
-	height: 30rem;
-}
-/*Formulario de informar de un problema [form_problemas.php]*/
-.form_issues
-{
-	width: 25rem;
-	height: 22rem;
-}
-/*Formulario de cambio de contraseña [cambio_pass.php]*/
-.form_pass_change
-{
 	width: 25rem;
 	height: 34rem;
 }
@@ -58,7 +72,6 @@ nav{
 .nav-right{
   grid-column-start: 2;
   text-align: right;
-  
 }
 footer{
   text-align: right;

@@ -18,7 +18,7 @@
 		<main>
 			<section>	
 				<h1 class="title is-1">Contacto online</h1>			
-				<form id = "forms" class="form_contact">
+				<form id = "form_contact" class="box">
 					<div class = "field">
 						<label class = "label">Nombre</label>
 						<input class = "input" type = "text" name = "nom_usu_contacto"></br>

@@ -15,7 +15,7 @@
 		<main>
 			<section>	
 				<h1 class="title is-1">INFORME DE UN PROBLEMA</h1>			
-				<form id = "forms" class="form_issues">
+				<form id = "form_issues" class="box">
 					<div class = "field">
 						<label class = "label">Contactar con</label>
 						<div class = "control">

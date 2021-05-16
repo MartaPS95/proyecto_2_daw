@@ -20,6 +20,23 @@
 			return true;
 		return false;
 	}
+	//Obtener nombre y apellidos de usuario para el inicio de sesión
+	function obtenerNombreUser($username, $conexion, $tabla)
+	{
+		$query = "SELECT nombre FROM " . $tabla . " WHERE username = \"" . $username . "\"";
+		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query.");
+		while($reg = mysqli_fetch_array($busqueda))	
+			$nombre = $reg['nombre'];
+		return $nombre;
+	}
+	function obtenerApellidosUser($username, $conexion, $tabla)
+	{
+		$query = "SELECT apellidos FROM " . $tabla . " WHERE username = \"" . $username . "\"";
+		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query.");
+		while($reg = mysqli_fetch_array($busqueda))	
+			$apellidos = $reg['apellidos'];
+		return $apellidos;
+	}
 	//Determinar que los campos del formulario no estén vacíos
 	function noVacio($username, $pass)
 	{
@@ -50,12 +67,34 @@
 	{
 		//Query de busqueda del usuario en nuestra tabla (determinada por el tipo de usuario seleccionado en el formulario)
 		if(buscarUsername($username, $con, $tabla))
-			echo "ACCESO";	//Mensaje prueba acceso correcto
+		{
+			/*Una vez guardados los datos de sesión nos vamos a la página de usuario que corresponda 
+			[Se han comentado los mensajes de prueba]*/
+			//echo "ACCESO";	//Mensaje prueba acceso correcto
+			$_SESSION['nombre'] = obtenerNombreUser($username, $con, $tabla);
+			$_SESSION['apellidos'] = obtenerApellidosUser($username, $con, $tabla);	
+			//echo $_SESSION['nombre'] . "<br>" . $_SESSION['apellidos'];
+			//echo "<a href = ../" . $tabla . ".php>Ir a sesion</a>";
+			
+			/*echo "<form acton = prueba_sesion.php method = POST";
+			echo "<input type = hidden name = nom_hid value = " . $_SESSION['nombre'] . ">";
+			echo "<input type = hidden name = ape_hid value = " . $_SESSION['apellidos'] . ">";
+			echo "</form>";*/
+			header("Location:../" . $tabla . ".php");
+		}
+		/*
 		else
-			echo "USUARIO NO ENCONTRADO";	//Mensaje prueba acceso error
+			echo "USUARIO NO ENCONTRADO";	//Mensaje prueba acceso error*/
+	}
+	  //En caso de que el usuario no haya ingresado campos muestra error [En pruebas de nav]
+	else
+	{
+	//Imaginemos que el usuario vuelve a la página de sesión después de haber cerrado, podríamos volver a login o mostrar un error de que no hay sesión.
+		header("Location:prueba_sesion.php");
 	}
 	//Si ha accedido pero los campos están en blanco informa de un error
-	else
-		echo "CAMPOS VACIOS";	//Mensaje prueba acceso error
+	/*else
+		echo "CAMPOS VACIOS";	//Mensaje prueba acceso error*/
+	
 	mysqli_close($con);	//Cerramos la conexión
 ?>

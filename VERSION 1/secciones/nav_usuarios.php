@@ -4,35 +4,46 @@
   la idea sería colocar a la derecha el nombre del usuario con sesión abierta, si es posible una opción de ajustes de su página
   y notificaciones.
 -->
-<nav class="navbar" role="navigation" aria-label="user navigation">
+<?php
+  /*Se inicia la sesión que guardará en nuestro nav el nombre y el apellido del usuario*/
+  session_start();
+  if(isset($_SESSION['nombre']) && isset($_SESSION['apellidos']))
+  {
+      $nombre = $_SESSION['nombre'];
+      $apellidos = $_SESSION['apellidos'];
+  }
+  //En caso de que el usuario no haya ingresado campos muestra error [En pruebas de nav]
+  else
+  {
+    //Imaginemos que el usuario vuelve a la página de sesión después de haber cerrado, podríamos volver a login o mostrar un error de que no hay sesión.
+    header("Location:./php/prueba_sesion.php");
+  }
+?>
+<nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
+    <span class="navbar-item">
+      <img src="./assets/img/edu_logo.png">
+    </span>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
-  <div>
-
-  </div>
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a class="navbar-item" href = "index.php">
         Inicio
       </a>
-      <!--En esta opción se podría establecer la posibilidad de descargar un archivo que contiene precidamente la documentación del proyecto-->
       <a class="navbar-item">
         Documentación
       </a>
-
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           Más
         </a>
-
         <div class="navbar-dropdown">
-          <!--Acceso a mi repositorio de github donde se recoge más información del proyecto-->
-          <a class="navbar-item" href = "https://github.com/MartaPS95/proyecto_2_daw/blob/master/README.md">
+          <a class="navbar-item" href = "https://github.com/MartaPS95/proyecto_2_daw/blob/master/README.md" target = "_blank">  <!--Aqui puede ser una ventana js-->
             Sobre nosotros
           </a>
           <a class="navbar-item">
@@ -42,23 +53,40 @@
             Contacto
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item">
+          <a class="navbar-item" href = "form_problemas.php">
             Informar de un problema
           </a>
         </div>
       </div>
     </div>
-
-    <div class="navbar-end">
+    <div class="navbar-end is-fluid">
       <div class="navbar-item">
-          <a href = "#">
-            <strong>Nombre y apellidos usuario  </strong>
-          </a>
-          <div class = "buttons">
-            <a href="index.php"class="button is-secondary">Cerrar sesión</a>
-          </div>
+        <!--Mostramos el nombre y apellido del usuario actual-->
+        <strong><?php echo $nombre . " " . $apellidos;?></strong>
+      </div>
+      <div class = "navbar-item">
+        <!--Se aplica un submit que nos lleva a acceso.php donde se verificará la información-->
+        <form action = "./index.php" method = "POST"> 
+          <input class = "button is-link" type = "submit" name = "cierre_sesion" value = "Cerrar sesión"/>
+        </form>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          <span class="navbar-item"><!-- Imagen de usuario, en caso de que la quiera configurar-->
+            <img src="./assets/img/user_default_image.png">
+          </span>
+        </a>
+        <div class="navbar-dropdown">
         </div>
       </div>
     </div>
   </div>
 </nav>
+<?php 
+  if(@$_POST['cierre_sesion'] == "Cerrar sesión")
+  {
+    session_destroy();
+    unset($_SESSION['nombre']);
+    unset($_SESSION['apellidos']);
+  }
+?>

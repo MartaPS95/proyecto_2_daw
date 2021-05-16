@@ -11,9 +11,22 @@
 ?>
 	<body>
 		<main>
-			<section>
-				BIENVENIDO ALUMNO><br>
-				Esto es el area de trabajo del alumno	
+			<section class = "section">
+				<div class = "box is-fluid">
+					<div class = "container is-fluid">
+						<div class="container is-fluid is-max-desktop">
+							<div class="notification is-primary is-link">
+								Bienvenido <strong><?php echo $nombre . " " . $apellidos;?></strong>
+							</div>
+							<div class="notification is-primary is-link">
+								This container is <strong>centered</strong> on desktop and larger viewports.
+							</div>
+							<div class="notification is-primary is-link">
+								This container is <strong>centered</strong> on desktop and larger viewports.
+							</div>
+						</div>
+					</div>
+				</div>
 			</section>
 		</main>
 		<?php include 'secciones/footer.php';?>

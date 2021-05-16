@@ -16,10 +16,10 @@
 	<body>
 		<!--Etiqueta definida con bulma que establece el fondo de imagen de nuestra web, ubicado en estilos.css-->
 		<main>
-			<section>	
+			<section class = "section">	
 				<h1 class="title is-1">Bienvenido a Educalegre</h1>			
 				<!--Formulario de login-->
-				<form id = "forms" class="form_login" action = "php/acceso.php" method = "POST">
+				<form id = "form_login" class="box" action = "php/acceso.php" method = "POST">
 					<div class="field">
 						<!--Selección del usuario que somos: profesor o alumno-->
 						<label class="label">Tipo de usuario</label>
