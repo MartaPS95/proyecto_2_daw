@@ -24,14 +24,14 @@ body{
 /*Formulario de registro [registro.php]*/
 #form_reg
 {
-	width: 30rem;
+	width: 35rem;
 	height: 25rem;
 }
 /*Formulario de contacto [contacto.php]*/
 #form_contact
 {
 	width: 25rem;
-	height: 30rem;
+	height: 33rem;
 }
 /*Formulario de informar de un problema [form_problemas.php]*/
 #form_issues

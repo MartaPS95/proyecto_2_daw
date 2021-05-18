@@ -19,13 +19,21 @@
 			<section>	
 				<h1 class="title is-1">Contacto online</h1>			
 				<form id = "form_contact" class="box">
-					<div class = "field">
-						<label class = "label">Nombre</label>
-						<input class = "input" type = "text" name = "nom_usu_contacto"></br>
+					<div class="field">
+						<label class="label" for="name">Nombre</label>
+						<div class="control has-icons-right">
+				            <input class="input needs-validation inputNameField" type="text" name="nom_usu_contacto" placeholder="Tu nombre" value="" id='inputName' />
+					    </div>
 					</div>
 					<div class = "field">
 						<label class = "label">Correo</label>
-						<input class = "input" type = "text" name = "email_usu_contacto"></br>
+						<div class="control has-icons-right">
+							<input class = "input needs-validation inputEmailField" type = "text" name = "email_usu_contacto" id='inputEmailField'>
+							<span class="icon is-small is-right">
+				                <i class="fas fa-envelope"></i>
+				            </span>
+				        </div>
+				        <p id="emailActionHint" class="help is-danger nezobrazovat">Introduce una dirección de correo válida</p>
 					</div>
 					<div>
 						<!--En este textarea el usuario podrá escribir su consulta-->
@@ -34,7 +42,10 @@
 					</div>
 					<div class = "field">
 						<!--Teléfono de contacto [IMAGINARIO]-->
-						<label class = "label">Teléfono de contacto: 11111-11111</label>
+						<span class = "icon is-large is-left">
+        					<i class = "fas fa-phone"></i>
+        				</span>
+        				111 111 111 
 					</div>
 					<div class = "field is-grouped">
 						<input class = "button is-link" type = "submit" name = "enviar_comentario" value = "Iniciar consulta">

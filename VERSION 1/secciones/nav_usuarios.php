@@ -33,10 +33,16 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" href = "index.php">
-        Inicio
+        <span class = "icon is-large is-left">
+          <i class = "fas fa-home"></i>
+        </span>
+        &nbsp;Inicio
       </a>
       <a class="navbar-item">
-        Documentación
+        <span class = "icon is-large is-left">
+          <i class = "fas fa-book"></i>
+        </span>
+        &nbsp;Documentación
       </a>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">

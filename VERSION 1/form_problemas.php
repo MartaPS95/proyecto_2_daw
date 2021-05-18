@@ -29,11 +29,16 @@
 					</div>
 					<div class = "field">
 						<label class = "label">Nombre</label>
-						<input class = "input" type = "text" name = "nom_usu_contacto"></br>
+						<input class = "input" type = "text" name = "nom_usu_contacto" placeholder = "Tu nombre"></br>
 					</div>
 					<div class = "field">
 						<label class = "label">Correo</label>
-						<input class = "input" type = "text" name = "email_usu_contacto"></br>
+							<div class = "control has-icons-right">	
+							<input class = "input" type = "text" name = "email_usu_contacto" placeholder = "correo@educalegre.com">
+							<span class="icon is-small is-right">
+		                		<i class="fas fa-envelope"></i>
+		            		</span>
+						</div>
 					</div>
 					<div class = "field is-grouped">
 						<!--Añadir un text area o mostrarlo después de escribir comentario de usuario cliente-->

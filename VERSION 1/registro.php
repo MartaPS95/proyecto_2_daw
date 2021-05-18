@@ -41,26 +41,46 @@ include 'secciones/nav.html';
 						</div>
 						<div class = "field">
 							<label class = "label">Correo</label> 
-							<input class = "input" type = "email" name = "correo_reg" placeholder = "usuario@educalegre.com"/><br>
+							<div class="control has-icons-right">
+								<input class = "input" type = "email" name = "correo_reg" placeholder = "usuario@educalegre.com"/>
+								<span class="icon is-small is-right">
+			                		<i class="fas fa-envelope"></i>
+			            		</span>
+							</div>
 						</div>
 					</div>
 					<div class="column">	<!--Segunda mitad-->
 						<div class = "field">
 							<label class = "label">Nombre usuario</label> 
-							<input class = "input" type = "text" name = "nom_usu_reg" placeholder = "nombre de usuario"/><br>
+							<div class = "control has-icons-right">
+								<input class = "input" type = "text" name = "nom_usu_reg" placeholder = "nombre de usuario"/>
+								<span class="icon is-small is-right">
+			                		<i class="fas fa-user"></i>
+			            		</span>
+							</div>
 						</div>
 						<div class = "field">
 							<label class = "label">Contraseña</label> 
-							<input class = "input" type = "password" name = "pass_reg" placeholder = "contraseña"><br>
+							<div class = "control has-icons-right">	
+								<input class = "input" type = "password" name = "pass_reg" placeholder = "contraseña">
+								<span class="icon is-small is-right">
+			                		<i class="fas fa-key"></i>
+			            		</span>
+							</div>
 						</div>
 						<div class = "field">
 							<label class = "label">Confirmar contraseña</label> 
-							<input class = "input" type = "password" name = "pass_reg_confirm" placeholder = "contraseña"><br>
+							<div class = "control has-icons-right">
+								<input class = "input" type = "password" name = "pass_reg_confirm" placeholder = "contraseña">
+								<span class="icon is-small is-right">
+			                		<i class="fas fa-key"></i>
+			            		</span>
+							</div>
 						</div>
 						<div class="field">
 							<div class="control">
 								<label class="checkbox">
-									<input type="checkbox">He aceptado los <a href="#">Términos y condiciones de uso</a>
+									<input type="checkbox">&nbsp;He aceptado los <a href="#">Términos y condiciones de uso</a>
 								</label>
 							</div>
 						</div>
