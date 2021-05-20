@@ -38,7 +38,7 @@
         </span>
         &nbsp;Inicio
       </a>
-      <a class="navbar-item">
+      <a class="navbar-item" href = "mantenimiento.php">
         <span class = "icon is-large is-left">
           <i class = "fas fa-book"></i>
         </span>
@@ -52,7 +52,7 @@
           <a class="navbar-item" href = "https://github.com/MartaPS95/proyecto_2_daw/blob/master/README.md" target = "_blank">  <!--Aqui puede ser una ventana js-->
             Sobre nosotros
           </a>
-          <a class="navbar-item">
+          <a class="navbar-item" href = "mantenimiento.php">
             Trabajos
           </a>
           <a class="navbar-item" href = "contacto.php">
@@ -72,9 +72,7 @@
       </div>
       <div class = "navbar-item">
         <!--Se aplica un submit que nos lleva a acceso.php donde se verificará la información-->
-        <form action = "./index.php" method = "POST"> 
-          <input class = "button is-link" type = "submit" name = "cierre_sesion" value = "Cerrar sesión"/>
-        </form>
+        
       </div>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
@@ -82,7 +80,14 @@
             <img src="./assets/img/user_default_image.png">
           </span>
         </a>
+        <hr class="navbar-divider">
         <div class="navbar-dropdown">
+           <a class="navbar-item" href = "./cambio_pass.php">  <!--Aqui puede ser una ventana js-->
+            Cambiar contraseña
+           </a>
+          <a class="navbar-item" href = "./php/cierre_sesion.php">  <!--Aqui puede ser una ventana js-->
+            Cerrar sesión
+          </a>
         </div>
       </div>
     </div>

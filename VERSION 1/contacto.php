@@ -41,15 +41,17 @@
 						<textarea class="textarea" placeholder="Escriba aquí su consulta"></textarea>
 					</div>
 					<div class = "field">
+						
+					</div>
+					<div class = "field is-grouped">
+						<input class = "button is-link" type = "submit" name = "enviar_comentario" value = "Iniciar consulta">
+						&nbsp;&nbsp;&nbsp;
+						<input class = "button is-link is-light" type = "reset" name = "borrar_info_contacto" value = "Borrar">
 						<!--Teléfono de contacto [IMAGINARIO]-->
 						<span class = "icon is-large is-left">
         					<i class = "fas fa-phone"></i>
         				</span>
-        				111 111 111 
-					</div>
-					<div class = "field is-grouped">
-						<input class = "button is-link" type = "submit" name = "enviar_comentario" value = "Iniciar consulta">
-						<input class = "button is-link is-light" type = "reset" name = "borrar_info_contacto" value = "Borrar">
+        				<label class = "label">111 111 111</label> 
 					</div>
 				</form>
 			</section>

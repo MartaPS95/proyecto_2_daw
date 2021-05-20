@@ -11,36 +11,36 @@
 <?php
 	session_start();
 	/***Declaracion de las funciones***/
-	//Buscar en la bd username y correo y verificar su existencia, ya que ninguno se puede repetir
-	function buscarUsername($username, $conexion, $tabla)
+	//Buscar en la bd correo y verificar su existencia, ya que ninguno se puede repetir
+	function buscarCorreo($email, $conexion, $tabla)
 	{
-		$query = "SELECT username FROM " . $tabla . " WHERE username = \"" . $username . "\"";
-		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query.");
+		$query = "SELECT email FROM " . $tabla . " WHERE email = \"" . $email . "\"";
+		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query buscarCorreo.");
 		while($reg = mysqli_fetch_array($busqueda))	
 			return true;
 		return false;
 	}
 	//Obtener nombre y apellidos de usuario para el inicio de sesión
-	function obtenerNombreUser($username, $conexion, $tabla)
+	function obtenerNombreUser($email, $conexion, $tabla)
 	{
-		$query = "SELECT nombre FROM " . $tabla . " WHERE username = \"" . $username . "\"";
-		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query.");
+		$query = "SELECT nombre FROM " . $tabla . " WHERE email = \"" . $email . "\"";
+		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query obtenerNombreUser.");
 		while($reg = mysqli_fetch_array($busqueda))	
 			$nombre = $reg['nombre'];
 		return $nombre;
 	}
-	function obtenerApellidosUser($username, $conexion, $tabla)
+	function obtenerApellidosUser($email, $conexion, $tabla)
 	{
-		$query = "SELECT apellidos FROM " . $tabla . " WHERE username = \"" . $username . "\"";
-		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query.");
+		$query = "SELECT apellido, segApellido FROM " . $tabla . " WHERE email = \"" . $email . "\"";
+		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query obtenerApellidosUser.");
 		while($reg = mysqli_fetch_array($busqueda))	
-			$apellidos = $reg['apellidos'];
+			$apellidos = $reg['apellido'] . " " . $reg['segApellido'];
 		return $apellidos;
 	}
 	//Determinar que los campos del formulario no estén vacíos
-	function noVacio($username, $pass)
+	function noVacio($email, $pass)
 	{
-		if(strlen($username) != 0 && strlen($pass) != 0)
+		if(strlen($email) != 0 && strlen($pass) != 0)
 			return true;
 		else return false;
 	}
@@ -55,7 +55,7 @@
 	//Obtenemos los datos de registro:
 	$tipo_usu = $_POST['tipo_usu_section_index'];
 	$tabla = obtenerTabla($tipo_usu);
-	$username = $_POST['usu_acceso'];
+	$email = $_POST['correo_usu_acceso'];
 	$contraseña = $_POST['usu_pass'];
 	//Establecemos la conexión a la base de datos "Educalegre" [MODO PRUEBAS -- educalegre_pruebas.sql]
 	$con = mysqli_connect("localhost", "root", "", "educalegre_pruebas") or die("ERROR: No se ha podido conectar con la base de datos");
@@ -63,16 +63,16 @@
 	//Si no ha encontrado un usuario y correo existentes y la contraseña ha sido confirmada correctamente, damos de alta
 	/*Se comprueba que no se repite el usuario y que se ha introducido una contraseña funcional*/
 	//Una vez el usuario a pulsado el botón de acceso y todos los campos se hayan rellenado:
-	if(@$_POST['acceso_user_index'] == "Acceder" && noVacio($username, $contraseña))
+	if(@$_POST['acceso_user_index'] == "Acceder" && noVacio($email, $contraseña))
 	{
 		//Query de busqueda del usuario en nuestra tabla (determinada por el tipo de usuario seleccionado en el formulario)
-		if(buscarUsername($username, $con, $tabla))
+		if(buscarCorreo($email, $con, $tabla))
 		{
 			/*Una vez guardados los datos de sesión nos vamos a la página de usuario que corresponda 
 			[Se han comentado los mensajes de prueba]*/
 			//echo "ACCESO";	//Mensaje prueba acceso correcto
-			$_SESSION['nombre'] = obtenerNombreUser($username, $con, $tabla);
-			$_SESSION['apellidos'] = obtenerApellidosUser($username, $con, $tabla);	
+			$_SESSION['nombre'] = obtenerNombreUser($email, $con, $tabla);
+			$_SESSION['apellidos'] = obtenerApellidosUser($email, $con, $tabla);	
 			//echo $_SESSION['nombre'] . "<br>" . $_SESSION['apellidos'];
 			//echo "<a href = ../" . $tabla . ".php>Ir a sesion</a>";
 			

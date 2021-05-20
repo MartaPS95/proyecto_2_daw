@@ -13,11 +13,11 @@ En esta sección se permite el cambio de contraseña del usuario en caso de no r
 			return true;
 		else return false;
 	}
-	//Buscar en la bd username y correo y verificar su existencia, ya que ninguno se puede repetir
-	function buscarUsername($username, $email, $conexion, $tabla)
+	//Buscar en la bd correo y verificar su existencia, ya que ninguno se puede repetir
+	function buscarCorreo($email, $conexion, $tabla)
 	{
-		$query = "SELECT username FROM " . $tabla . " WHERE username = \"" . $username . "\" OR correo = \"" . $email . "\"";
-		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query\"buscarUsername\".");
+		$query = "SELECT email FROM " . $tabla . " WHERE email = \"" . $email . "\"";
+		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query\"buscarCorreo\".");
 		while($reg = mysqli_fetch_array($busqueda))	
 			return true;
 		return false;
@@ -32,16 +32,16 @@ En esta sección se permite el cambio de contraseña del usuario en caso de no r
 		return false;
 	}
 	//Comprobar que se ha introducido información en username y correo
-	function noVacio($correo, $username)
+	function noVacio($correo)
 	{
-		if(strlen($correo) != 0 && strlen($username) != 0)
+		if(strlen($correo))
 			return true;
 		else return false;
 	}
 	//Dar de alta la información del usuario en la base de datos
-	function actualizarPass($nueva_pass, $username, $correo, $tabla, $con)
+	function actualizarPass($nueva_pass, $correo, $tabla, $con)
 	{
-		$query = "UPDATE " . $tabla . " SET contraseña = SHA1(\"" . $nueva_pass . "\") WHERE username = \"" . $username . "\" AND correo = \"" . $correo . "\"";
+		$query = "UPDATE " . $tabla . " SET contraseña = SHA1(\"" . $nueva_pass . "\") WHERE email = \"" . $correo . "\"";
 		mysqli_query($con, $query) or die("ERROR: La query \"Actualizar pass\" no está bien escrita.");
 	}
 	//Obtener la tabla en la que se va a realizar el alta de la información de usuario (alumno o profesor)
@@ -56,7 +56,6 @@ En esta sección se permite el cambio de contraseña del usuario en caso de no r
 	$tipo_usu = $_POST['tipo_usu_cambio_pass'];
 	$tabla = obtenerTabla($tipo_usu);
 	$correo = $_POST['correo_usu'];
-	$username = $_POST['nombre_usu'];
 	$contra = $_POST['new_pass'];
 	$contra_confirm = $_POST['new_pass_confirm'];
 	//Establecemos la conexión a la base de datos "Educalegre" [MODO PRUEBAS]
@@ -65,12 +64,12 @@ En esta sección se permite el cambio de contraseña del usuario en caso de no r
 	//Si no ha encontrado un usuario y correo existentes y la contraseña ha sido confirmada correctamente, damos de alta
 	/*Se comprueba que no se repite el usuario y que se ha introducido una contraseña funcional*/
 	//Sólo prueba de alta a esta página
-	if(@$_POST['cambiar_pass'] == "Cambiar contraseña" && noVacio($correo, $username))
+	if(@$_POST['cambiar_pass'] == "Cambiar contraseña" && noVacio($correo))
 	{
-		if(buscarUsername($username, $correo, $con, $tabla) && confirmarContraseña($contra, $contra_confirm))
+		if(buscarCorreo($correo, $con, $tabla) && confirmarContraseña($contra, $contra_confirm))
 		{
 			$nueva_contraseña = $_POST['new_pass'];
-			actualizarPass($nueva_contraseña, $username, $correo, $tabla, $con);
+			actualizarPass($nueva_contraseña, $correo, $tabla, $con);
 			echo "CONTRASEÑA ACTUALIZADA";
 		}
 		else

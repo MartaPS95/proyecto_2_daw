@@ -25,25 +25,25 @@ body{
 #form_reg
 {
 	width: 35rem;
-	height: 25rem;
+	height: 32rem;
 }
 /*Formulario de contacto [contacto.php]*/
 #form_contact
 {
-	width: 25rem;
+	width: 35rem;
 	height: 33rem;
 }
 /*Formulario de informar de un problema [form_problemas.php]*/
 #form_issues
 {
 	width: 25rem;
-	height: 22rem;
+	height: 33rem;
 }
 /*Formulario de cambio de contraseña [cambio_pass.php]*/
 #form_pass_change
 {
 	width: 25rem;
-	height: 34rem;
+	height: 28rem;
 }
 
 /*Estilo para el contenedor de área de trabajo de cada usuario*/

@@ -14,25 +14,25 @@
 		else return false;
 	}
 	//Buscar en la bd username y correo y verificar su existencia, ya que ninguno se puede repetir
-	function buscarUsername($username, $email, $conexion, $tabla)
+	function buscarCorreo($email, $conexion, $tabla)
 	{
-		$query = "SELECT username FROM " . $tabla . " WHERE username = \"" . $username . "\" OR correo = \"" . $email . "\"";
-		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query.");
+		$query = "SELECT email FROM " . $tabla . " WHERE email = \"" . $email . "\"";
+		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query buscarCorreo.");
 		while($reg = mysqli_fetch_array($busqueda))	
 			return true;
 		return false;
 	}
-	function noVacio($nom, $ape, $correo, $username)
+	function noVacio($nom, $ape1, $ape2, $email, $dni, $tel)
 	{
-		if(strlen($nom) != 0 && strlen($ape) != 0 && strlen($correo) != 0 && strlen($username) != 0)
+		if(strlen($nom) != 0 && strlen($ape1) != 0 && strlen($ape2) != 0 && strlen($email) != 0 && strlen($dni) != 0 && strlen($tel) != 0)
 			return true;
 		else return false;
 	}
 	//Dar de alta la información del usuario en la base de datos
-	function insertarUser($nom, $ape, $email, $username, $pass, $tabla, $con)
+	function insertarUser($nom, $ape1, $ape2, $dni, $pass, $email, $tel, $tabla, $con)
 	{
-		$query = "INSERT INTO " . $tabla . "(nombre, apellidos, correo, username, contraseña) VALUES(\"" . $nom . "\", \"" . $ape . "\", \"" . $email . "\", \"" . $username . "\",SHA1(\"" . $pass . "\"))";
-		mysqli_query($con, $query) or die("ERROR: La query no está bien escrita.");
+		$query = "INSERT INTO " . $tabla . "(nombre, apellido, segApellido, dni, contraseña, email, telefono) VALUES(\"" . $nom . "\", \"" . $ape1 . "\", \"" . $ape2 . "\", \"" . $dni . "\", SHA1(\"" . $pass . "\"), \"" . $email . "\", \"" . $tel . "\")";
+		mysqli_query($con, $query) or die("ERROR: La query no está bien escrita insertarUser.");
 	}
 	//Obtener la tabla en la que se va a realizar el alta de la información de usuario (alumno o profesor)
 	function obtenerTabla($tipo_usu)
@@ -46,9 +46,11 @@
 	$tipo_usu = $_POST['tipo_usu_section_reg'];
 	$tabla = obtenerTabla($tipo_usu);
 	$nombre = $_POST['nombre_reg'];
-	$apellidos = $_POST['ape_reg'];
+	$ape1 = $_POST['ape1_reg'];
+	$ape2 = $_POST['ape2_reg'];
+	$dni = $_POST['dni_reg'];
 	$correo = $_POST['correo_reg'];
-	$username = $_POST['nom_usu_reg'];
+	$tel = $_POST['tel_reg'];
 	$contra = $_POST['pass_reg'];
 	$contra_confirm = $_POST['pass_reg_confirm'];
 	//Establecemos la conexión a la base de datos "Educalegre" [MODO PRUEBAS]
@@ -57,12 +59,12 @@
 	//Si no ha encontrado un usuario y correo existentes y la contraseña ha sido confirmada correctamente, damos de alta
 	/*Se comprueba que no se repite el usuario y que se ha introducido una contraseña funcional*/
 	//Sólo prueba de alta a esta página
-	if(@$_POST['alta_user_reg'] == "Darse de alta" && noVacio($nombre, $apellidos, $correo, $username))
+	if(@$_POST['alta_user_reg'] == "Darse de alta" && noVacio($nombre, $ape1, $ape2, $correo, $dni, $tel))
 	{
-		if(!buscarUsername($username, $correo, $con, $tabla) && confirmarContraseña($contra, $contra_confirm))
+		if(!buscarCorreo($correo, $con, $tabla) && confirmarContraseña($contra, $contra_confirm))
 		{
 			$contraseña = $_POST['pass_reg'];
-			insertarUser($nombre, $apellidos, $correo, $username, $contraseña, $tabla, $con);
+			insertarUser($nombre, $ape1, $ape2, $dni, $contraseña, $correo, $tel , $tabla, $con);
 			echo "USUARIO DADO DE ALTA";
 		}
 		else

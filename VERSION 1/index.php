@@ -34,11 +34,11 @@
 					</div>
 					<!--Campos a rellenar: username y contraseña-->
 					<div class = "field">
-						<label class = "label">Nombre de usuario</label> 
+						<label class = "label">Correo de usuario</label> 
 						<div class = "control has-icons-right">
-							<input class = "input" type = "text" name = "usu_acceso" placeholder = "nombre de usuario"/>
+							<input class = "input" type = "text" name = "correo_usu_acceso" placeholder = "correo@educalegre.com"/>
 							<span class="icon is-small is-right">
-		                		<i class="fas fa-user"></i>
+		                		<i class="fas fa-envelope"></i>
 		            		</span>
 						</div>
 					</div>
@@ -54,10 +54,11 @@
 					<div class = "field is-grouped">
 						<!--Se aplica un submit que nos lleva a acceso.php donde se verificará la información-->
 						<input class = "button is-link" type = "submit" name = "acceso_user_index" value = "Acceder"/>
+						&nbsp;&nbsp;&nbsp;
 						<input class = "button is-link is-light" type = "reset" name = "reseteo_datos_index" value = "Borrar"/><br>
 					</div>
 					<!--Permite al usuario gestionar su contraseña o usuario mediante un formulario al que nos lleva el link cambio_pass[EN PRUEBAS]-->
-					<a href = "cambio_pass.php">¿Has olvidado tu usuario o contraseña?</a><br><!--Enlace sin destino-->
+					<a href = "cambio_pass.php">¿Has olvidado tu contraseña?</a><br><!--Enlace sin destino-->
 				</form>
 			</section>
 		</main>

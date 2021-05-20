@@ -36,8 +36,32 @@ include 'secciones/nav.html';
 							<input class = "input" type = "text" name = "nombre_reg" placeholder = "Tu nombre"/><br>
 						</div>
 						<div class = "field">
-							<label class = "label">Apellidos</label> 
-							<input class = "input" type = "text" name = "ape_reg" placeholder = "Tus apellidos"><br>
+							<label class = "label">Primer apellido</label> 
+							<input class = "input" type = "text" name = "ape1_reg" placeholder = "Tu primer apellido"><br>
+						</div>
+						<div class = "field">
+							<label class = "label">Segundo apellido</label> 
+							<input class = "input" type = "text" name = "ape2_reg" placeholder = "Tu segundo apellido"><br>
+						</div>
+						<div class = "field">
+							<label class = "label">DNI</label> 
+							<div class="control has-icons-right">
+								<input class = "input" type = "text" name = "dni_reg"/>
+								<span class="icon is-small is-right">
+			                		<i class="fas fa-envelope"></i>
+			            		</span>
+							</div>
+						</div>
+					</div>
+					<div class="column is-half">	<!--Segunda mitad-->
+						<div class = "field">
+							<label class = "label">Teléfono</label> 
+							<div class = "control has-icons-right">
+								<input class = "input" type = "text" name = "tel_reg" placeholder = "Fijo/móvil"/>
+								<span class="icon is-small is-right">
+			                		<i class="fas fa-phone"></i>
+			            		</span>
+							</div>
 						</div>
 						<div class = "field">
 							<label class = "label">Correo</label> 
@@ -45,17 +69,6 @@ include 'secciones/nav.html';
 								<input class = "input" type = "email" name = "correo_reg" placeholder = "usuario@educalegre.com"/>
 								<span class="icon is-small is-right">
 			                		<i class="fas fa-envelope"></i>
-			            		</span>
-							</div>
-						</div>
-					</div>
-					<div class="column">	<!--Segunda mitad-->
-						<div class = "field">
-							<label class = "label">Nombre usuario</label> 
-							<div class = "control has-icons-right">
-								<input class = "input" type = "text" name = "nom_usu_reg" placeholder = "nombre de usuario"/>
-								<span class="icon is-small is-right">
-			                		<i class="fas fa-user"></i>
 			            		</span>
 							</div>
 						</div>
@@ -86,6 +99,7 @@ include 'secciones/nav.html';
 						</div>
 						<div class = "field is-grouped">
 							<input class = "button is-link" type = "submit" name = "alta_user_reg" value = "Darse de alta"/>
+							&nbsp;&nbsp;&nbsp;
 							<input class = "button is-link is-light" type = "reset" name = "reseteo_datos_reg" value = "Borrar"/><br>
 						</div>
 					</div>
