@@ -11,7 +11,7 @@ $title = 'Educalegre Profesores';
 	$nombre = $_SESSION['nombre'];
     $apellidos = $_SESSION['apellidos'];
 ?>
-	<body>
+	<body class = "body">
 		<main>
 			<section class = "section">
 				<div class = "box is-fluid">

@@ -9,7 +9,7 @@
 	include 'secciones/header.php';
 	include 'secciones/nav_usuarios.php';
 ?>
-	<body>
+	<body class = "body">
 		<main>
 			<section class = "section">
 				<div class = "box is-fluid">

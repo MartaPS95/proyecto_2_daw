@@ -6,13 +6,6 @@
 <?php
 	session_start();
 	//Declaracion de las funciones
-	//Determinar si la contraseña ingresada es correcta en la comparativa a su confirmación
-	function confirmarContraseña($contra_ini, $contra_conf)
-	{
-		if(($contra_ini == $contra_conf) && (strlen($contra_ini) != 0) && (strlen($contra_conf) != 0))	
-			return true;
-		else return false;
-	}
 	//Buscar en la bd username y correo y verificar su existencia, ya que ninguno se puede repetir
 	function buscarCorreo($email, $conexion, $tabla)
 	{
@@ -21,12 +14,6 @@
 		while($reg = mysqli_fetch_array($busqueda))	
 			return true;
 		return false;
-	}
-	function noVacio($nom, $ape1, $ape2, $email, $dni, $tel)
-	{
-		if(strlen($nom) != 0 && strlen($ape1) != 0 && strlen($ape2) != 0 && strlen($email) != 0 && strlen($dni) != 0 && strlen($tel) != 0)
-			return true;
-		else return false;
 	}
 	//Dar de alta la información del usuario en la base de datos
 	function insertarUser($nom, $ape1, $ape2, $dni, $pass, $email, $tel, $tabla, $con)
@@ -59,18 +46,22 @@
 	//Si no ha encontrado un usuario y correo existentes y la contraseña ha sido confirmada correctamente, damos de alta
 	/*Se comprueba que no se repite el usuario y que se ha introducido una contraseña funcional*/
 	//Sólo prueba de alta a esta página
-	if(@$_POST['alta_user_reg'] == "Darse de alta" && noVacio($nombre, $ape1, $ape2, $correo, $dni, $tel))
+	if(@$_POST['alta_user_reg'] == "Darse de alta")
 	{
-		if(!buscarCorreo($correo, $con, $tabla) && confirmarContraseña($contra, $contra_confirm))
+		if(!buscarCorreo($correo, $con, $tabla))
 		{
 			$contraseña = $_POST['pass_reg'];
 			insertarUser($nombre, $ape1, $ape2, $dni, $contraseña, $correo, $tel , $tabla, $con);
-			echo "USUARIO DADO DE ALTA";
+			//echo "USUARIO DADO DE ALTA";
+			header("Location:../index.php");
 		}
 		else
+			//header("Location:../registro.php");
 			echo "ERROR EN ALTA";	//Mostraremos una ventana indicándonos el error de que el usuario ya existe
 	}
 	else
-		echo "CAMPOS VACIOS";	//Mostraremos una ventana indicando el error, o aplicaremos validaciones de bulma
+		header("Location:../registro.php");
+	/*else
+		echo "CAMPOS VACIOS";	//Mostraremos una ventana indicando el error, o aplicaremos validaciones de bulma*/
 	mysqli_close($con);	//Cerramos la conexión
 ?>

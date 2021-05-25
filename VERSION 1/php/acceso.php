@@ -12,9 +12,9 @@
 	session_start();
 	/***Declaracion de las funciones***/
 	//Buscar en la bd correo y verificar su existencia, ya que ninguno se puede repetir
-	function buscarCorreo($email, $conexion, $tabla)
+	function validarDatos($email, $pass, $conexion, $tabla)
 	{
-		$query = "SELECT email FROM " . $tabla . " WHERE email = \"" . $email . "\"";
+		$query = "SELECT email FROM " . $tabla . " WHERE email = \"" . $email . "\" AND contraseña = SHA1(\"" . $pass . "\")";
 		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query buscarCorreo.");
 		while($reg = mysqli_fetch_array($busqueda))	
 			return true;
@@ -63,38 +63,22 @@
 	//Si no ha encontrado un usuario y correo existentes y la contraseña ha sido confirmada correctamente, damos de alta
 	/*Se comprueba que no se repite el usuario y que se ha introducido una contraseña funcional*/
 	//Una vez el usuario a pulsado el botón de acceso y todos los campos se hayan rellenado:
-	if(@$_POST['acceso_user_index'] == "Acceder" && noVacio($email, $contraseña))
+	if(@$_POST['acceso_user_index'] == "Acceder")
 	{
 		//Query de busqueda del usuario en nuestra tabla (determinada por el tipo de usuario seleccionado en el formulario)
-		if(buscarCorreo($email, $con, $tabla))
+		if(validarDatos($email, $contraseña, $con, $tabla))
 		{
 			/*Una vez guardados los datos de sesión nos vamos a la página de usuario que corresponda 
 			[Se han comentado los mensajes de prueba]*/
-			//echo "ACCESO";	//Mensaje prueba acceso correcto
 			$_SESSION['nombre'] = obtenerNombreUser($email, $con, $tabla);
 			$_SESSION['apellidos'] = obtenerApellidosUser($email, $con, $tabla);	
-			//echo $_SESSION['nombre'] . "<br>" . $_SESSION['apellidos'];
-			//echo "<a href = ../" . $tabla . ".php>Ir a sesion</a>";
-			
-			/*echo "<form acton = prueba_sesion.php method = POST";
-			echo "<input type = hidden name = nom_hid value = " . $_SESSION['nombre'] . ">";
-			echo "<input type = hidden name = ape_hid value = " . $_SESSION['apellidos'] . ">";
-			echo "</form>";*/
 			header("Location:../" . $tabla . ".php");
 		}
-		/*
 		else
-			echo "USUARIO NO ENCONTRADO";	//Mensaje prueba acceso error*/
+		{
+			header("Location:../index.php");
+		}
 	}
-	  //En caso de que el usuario no haya ingresado campos muestra error [En pruebas de nav]
-	else
-	{
-	//Imaginemos que el usuario vuelve a la página de sesión después de haber cerrado, podríamos volver a login o mostrar un error de que no hay sesión.
-		header("Location:prueba_sesion.php");
-	}
-	//Si ha accedido pero los campos están en blanco informa de un error
-	/*else
-		echo "CAMPOS VACIOS";	//Mensaje prueba acceso error*/
 	
 	mysqli_close($con);	//Cerramos la conexión
 ?>
