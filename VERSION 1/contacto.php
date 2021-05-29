@@ -13,7 +13,7 @@
 	include 'secciones/header.php';
 	include 'secciones/nav.html';
 ?>
-	<body>
+	<body class = "body">
 		<!--Etiqueta definida con bulma que establece el fondo de imagen de nuestra web, ubicado en estilos.css-->
 		<main>
 			<section>	
@@ -22,29 +22,27 @@
 					<div class="field">
 						<label class="label" for="name">Nombre</label>
 						<div class="control has-icons-right">
-				            <input class="input needs-validation inputNameField" type="text" name="nom_usu_contacto" placeholder="Tu nombre" value="" id='inputName' />
+				            <input class="input needs-validation inputNameField" type="text" name="nom_usu_contacto" placeholder="Tu nombre" value="" id='inputName' required/>
 					    </div>
 					</div>
 					<div class = "field">
 						<label class = "label">Correo</label>
 						<div class="control has-icons-right">
-							<input class = "input needs-validation inputEmailField" type = "text" name = "email_usu_contacto" id='inputEmailField'>
+							<input class = "input needs-validation inputEmailField" type = "email" name = "email_usu_contacto" id = 'inputEmailField' required>
 							<span class="icon is-small is-right">
 				                <i class="fas fa-envelope"></i>
 				            </span>
 				        </div>
-				        <p id="emailActionHint" class="help is-danger nezobrazovat">Introduce una dirección de correo válida</p>
 					</div>
 					<div>
 						<!--En este textarea el usuario podrá escribir su consulta-->
 						<label class = "label">Consulta</label>
-						<textarea class="textarea" placeholder="Escriba aquí su consulta"></textarea>
+						<textarea class="textarea" placeholder="Escriba aquí su consulta" required></textarea>
 					</div>
 					<div class = "field">
-						
 					</div>
 					<div class = "field is-grouped">
-						<input class = "button is-link" type = "submit" name = "enviar_comentario" value = "Iniciar consulta">
+						<input class = "button is-link" type = "submit" name = "enviar_comentario" value = "Iniciar consulta" required>
 						&nbsp;&nbsp;&nbsp;
 						<input class = "button is-link is-light" type = "reset" name = "borrar_info_contacto" value = "Borrar">
 						<!--Teléfono de contacto [IMAGINARIO]-->

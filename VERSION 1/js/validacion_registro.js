@@ -9,7 +9,6 @@ const input_tel = document.getElementById("inputTel");
 const input_dni = document.getElementById("inputDNI");
 const input_check_terms = document.getElementById("inputCheckTerms");
 //Definir iconos
-//Definir inputs
 const icon_pass_ini = document.getElementById("iconPass1");
 const icon_pass_confirm = document.getElementById("iconPass1");
 const icon_email = document.getElementById("iconEmail");
@@ -23,42 +22,21 @@ document.addEventListener("DOMContentLoaded", function() {
 //Función que comprueba que TODOS los datos estén debidamente validados
 function validarFormulario(evento)
 {
-	var nom_completo_val = pass_val = correo_val = tel_val = dni_val = terms_val = false;
-	var nombre = document.getElementById("inputName").value;
-	var ape1 = document.getElementById("inputApe1").value;
-	var ape2 = document.getElementById("inputApe2").value;
-	var pass_ini = document.getElementById("inputPassIni").value;
-	var pass_confirm = document.getElementById("inputPassConfirm").value;
-	var correo = document.getElementById("inputEmail").value;
-	var tel = document.getElementById("inputTel").value;
-	var dni = document.getElementById("inputDNI").value;
-	var checkTerms = document.getElementById("inputCheckTerms").checked;
-
-	if(correo.length != 0 && validarCorreo(correo))
-		correo_val = true;
-	if(pass_ini.length != 0 && pass_confirm.length != 0 && validarContraseña(pass_ini, pass_confirm))
-		pass_val = true;
-	if(validarNombreCompleto(nombre, ape1, ape2))
-		nom_completo_val = true;
-	if(validarDNI(dni))
-		dni_val = true;
-	if(validarTelefono(tel))
-		tel_val = true;
-	if(validarCheckTerminos(checkTerms))
-		terms_val = true;
-
-	validarDato(correo_val, input_email, icon_email);
-	validarDato(pass_val, input_pass_ini, icon_pass_ini);
-	validarDato(pass_val, input_pass_confirm, icon_pass_confirm);
-	validarDato(dni_val, input_dni, icon_dni);
-	validarDato(tel_val, input_tel, icon_tel);
+	//Validar cada campo
+	validarDato(validarCorreo(input_email.value), input_email, icon_email);
+	validarDato(validarContraseña(input_pass_ini.value, input_pass_confirm.value), input_pass_ini, icon_pass_ini);
+	validarDato(validarContraseña(input_pass_ini.value, input_pass_confirm.value), input_pass_confirm, icon_pass_confirm);
+	validarDato(validarDNI(input_dni.value), input_dni, icon_dni);
+	validarDato(validarTelefono(input_tel.value), input_tel, icon_tel);
 
 	//Validados los datos mediante expresiones regulares realizamos submit
-	if(correo_val && pass_val && nom_completo_val && tel_val && terms_val && dni_val)
-		this.submit();
+	if(validarCorreo(input_email.value) && validarContraseña(input_pass_ini.value, input_pass_confirm.value) 
+		 && validarNombreCompleto(input_name.value, input_ape1.value, input_ape2.value) && validarDNI(input_dni.value)
+		 && validarTelefono(input_tel.value) && validarCheckTerminos(input_check_terms.checked))
+		this.submit();	//Envío del formulario
 	//En caso contrario, nos quedamos en la página actual indicando los valores que no son correctos
 	else
-		evento.preventDefault();
+		evento.preventDefault();	//Continuar en el formulario en caso de que un campo sea erróneo
 }
 
 //Función que recoge un booleano, el input y el icono
@@ -69,7 +47,7 @@ function validarDato(valor, input, icon)
 	else
 		cambiarCampos(input, icon, 'is-success','is-danger','fa-check-circle','fa-exclamation-triangle');
 }
-
+//Cambiar el aspecto de los bordes y los iconos de los campos que se vean afectados
 function cambiarCampos(input, icon, borde1, borde2, icono1, icono2)
 {
 	input.classList.remove(borde1);
@@ -78,8 +56,7 @@ function cambiarCampos(input, icon, borde1, borde2, icono1, icono2)
 	icon.classList.add(icono2);
 }
 
-//Aplicar expresiones
-
+//Aplicar expresiones regulares
 function validarNombreCompleto(nombre, ape1, ape2)
 {
 	if((nombre.length > 0 && nombre.length <= 45) && (ape1.length > 0 && ape2.length <= 45) && (ape2.length > 0 && ape2.length <= 45))

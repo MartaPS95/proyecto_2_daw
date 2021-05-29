@@ -36,7 +36,7 @@
 					<div class = "field">
 						<label class = "label">Correo de usuario</label> 
 						<div class = "control has-icons-right">
-							<input id = "inputEmail" class = "input" type = "text" name = "correo_usu_acceso" placeholder = "correo@educalegre.com" required/>
+							<input id = "inputEmail" class = "input" type = "email" name = "correo_usu_acceso" placeholder = "correo@educalegre.com" required/>
 							<span class="icon is-small is-right">
 		                		<i id = "iconEmail" class="fas fa-envelope"></i>
 		            		</span>

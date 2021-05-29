@@ -37,21 +37,21 @@ include 'secciones/nav.html';
 
 					<div class="field">
 						<label for="nombre_reg" class="label">Nombre</label>
-						<input id = "inputName" class="input" type="text" name="nombre_reg" placeholder="Tu nombre" /><br>
+						<input id = "inputName" class="input" type="text" name="nombre_reg" placeholder="Tu nombre" required/><br>
 					</div>
 					<div class="field">
 						<label for="ape1_reg" class="label">Primer apellido</label>
-						<input id = "inputApe1" class="input" type="text" name="ape1_reg" placeholder="Tu primer apellido"><br>
+						<input id = "inputApe1" class="input" type="text" name="ape1_reg" placeholder="Tu primer apellido" required>
 					</div>
 					<div class="field">
 						<label for="ape2_reg" class="label">Segundo apellido</label>
-						<input id = "inputApe2" class="input" type="text" name="ape2_reg" placeholder="Tu segundo apellido"><br>
+						<input id = "inputApe2" class="input" type="text" name="ape2_reg" placeholder="Tu segundo apellido" required>
 					</div>
 				
 					<div class="field">
 						<label for="pass_reg" class="label">Contraseña</label>
 						<div class="control has-icons-right">
-							<input id = "inputPassIni" class="input" type="password" name="pass_reg"  placeholder="Contraseña">
+							<input id = "inputPassIni" class="input" type="password" name="pass_reg"  placeholder="Contraseña" required>
 							<span class="icon is-small is-right">
 								<i id = "iconPass1" class="fas fa-key"></i>
 							</span>
@@ -63,7 +63,7 @@ include 'secciones/nav.html';
 					<div class="field">
 						<label class="label">DNI</label>
 						<div class="control has-icons-right">
-							<input id = "inputDNI" class="input" type="text" name="dni_reg" placeholder="DNI/NIE" />
+							<input id = "inputDNI" class="input" type="text" name="dni_reg" placeholder="DNI/NIE" required/>
 							<span class="icon is-small is-right">
 								<i id = "iconDNI" class="fas fa-id-card"></i>
 							</span>
@@ -73,7 +73,7 @@ include 'secciones/nav.html';
 					<div class="field">
 						<label class="label">Correo</label>
 						<div class="control has-icons-right">
-							<input id = "inputEmail" class="input" type="email" name="correo_reg" placeholder="usuario@educalegre.com" />
+							<input id = "inputEmail" class="input" type="email" name="correo_reg" placeholder="usuario@educalegre.com" required/>
 							<span class="icon is-small is-right">
 								<i id = "iconEmail" class="fas fa-envelope"></i>
 							</span>
@@ -82,7 +82,7 @@ include 'secciones/nav.html';
 					<div class="field">
 						<label class="label">Teléfono</label>
 						<div class="control has-icons-right">
-							<input id = "inputTel" class="input" type="text" name="tel_reg" placeholder="Fijo/móvil" />
+							<input id = "inputTel" class="input" type="text" name="tel_reg" placeholder="Fijo/móvil" required/>
 							<span class="icon is-small is-right">
 								<i id = "iconTel" class="fas fa-phone"></i>
 							</span>
@@ -91,7 +91,7 @@ include 'secciones/nav.html';
 					<div class="field">
 						<label for="pass_reg_confirm" class="label">Confirmar contraseña</label>
 						<div class="control has-icons-right">
-							<input id = "inputPassConfirm" class="input" type="password" name="pass_reg_confirm" placeholder="Contraseña">
+							<input id = "inputPassConfirm" class="input" type="password" name="pass_reg_confirm" placeholder="Contraseña required">
 							<span class="icon is-small is-right">
 								<i id = "iconPass2" class="fas fa-key"></i>
 							</span>
