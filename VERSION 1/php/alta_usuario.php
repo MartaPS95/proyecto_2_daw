@@ -19,25 +19,26 @@
 	$dni = $_POST['dni_reg'];
 	$correo = $_POST['correo_reg'];
 	$tel = $_POST['tel_reg'];
-	$contra = $_POST['pass_reg'];
-	$contra_confirm = $_POST['pass_reg_confirm'];
-	//Establecemos la conexión a la base de datos "Educalegre" [MODO PRUEBAS]
-	//Solución a los problemas con acentos y caracteres especiales.
-	//Si no ha encontrado un usuario y correo existentes y la contraseña ha sido confirmada correctamente, damos de alta
-	/*Se comprueba que no se repite el usuario y que se ha introducido una contraseña funcional*/
-	//Sólo prueba de alta a esta página
-	if(@$_POST['alta_user_reg'] == "Darse de alta" && noVacio($nombre, $ape1, $ape2, $correo, $dni, $tel))
-	{
-		if(!buscarCorreo($correo, $con, $tabla) && confirmarContraseña($contra, $contra_confirm))
-		{
-			$contraseña = $_POST['pass_reg'];
-			insertarUser($nombre, $ape1, $ape2, $dni, $contraseña, $correo, $tel , $tabla, $con);
-			echo "USUARIO DADO DE ALTA";
-		}
-		else
-			echo "ERROR EN ALTA";	//Mostraremos una ventana indicándonos el error de que el usuario ya existe
+	$contraseña = $_POST['pass_reg'];
+
+	//Hay que realizar la busqueda en ambas tablas, ya que todos los usuarios cuentan
+	$query = "SELECT email, dni, telefono FROM alumnos WHERE email = \"" . $correo . "\" OR dni = \"" . $dni . "\" OR telefono = " . $tel . " UNION SELECT email, dni, telefono FROM profesores WHERE email = \"" . $correo . "\" OR dni = \"" . $dni . "\" OR telefono = " . $tel . "";
+	$resultado = mysqli_query($con, $query) or die("ERROR: Hay un problema en la query buscarCorreo.");
+	$filas=mysqli_num_rows($resultado);
+	if($filas==0){
+		//echo "ALTA CORRECTA";
+		insertarUser($nombre, $ape1, $ape2, $dni, $contraseña, $correo, $tel , $tabla, $con);
+		//echo "<script>alert(\"Usuario dado de alta\");</script>";
+		echo "<script type = text/javascript>window.location.replace(\"../registro.php\");";
+		echo "alert(\"Alta correcta\")</script>";
+		//header("Location:../index.php");
 	}
 	else
-		echo "CAMPOS VACIOS";	//Mostraremos una ventana indicando el error, o aplicaremos validaciones de bulma
+	{
+		//echo "<script>alert(\"Error de alta, el usuario ya existe\");</script>";
+		echo "<script type = text/javascript>window.location.replace(\"../registro.php\");";
+		echo "alert(\"Error: el usuario ya existe\")</script>";
+		//header("Location:../registro.php");
+	}
 	mysqli_close($con);	//Cerramos la conexión
 ?>

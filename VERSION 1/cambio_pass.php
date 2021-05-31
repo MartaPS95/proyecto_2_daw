@@ -9,7 +9,7 @@
 	include 'secciones/header.php';
 	include 'secciones/nav.html';
 ?>
-	<body>
+	<body class = "body">
 		<main>
 			<section>	
 				<h1 class="title is-1">Cambio de contraseña</h1>	
@@ -28,27 +28,27 @@
 					<div class = "field">
 						<label class = "label">Correo</label> 
 						<div class = "control has-icons-right">	
-						<input class = "input" type = "text" name = "correo_usu" placeholder = "usuario@educalegre.com">
+						<input id = "inputEmail" class = "input" type = "email" name = "correo_usu" placeholder = "usuario@educalegre.com" required>
 						<span class="icon is-small is-right">
-	                		<i class="fas fa-envelope"></i>
+	                		<i id = "iconEmail" class="fas fa-envelope"></i>
 	            		</span>
 						</div>
 					</div>
 					<div class = "field">
 						<label class = "label"> Nueva contraseña</label> 
 						<div class = "control has-icons-right">	
-							<input class = "input" type = "password" name = "new_pass" placeholder = "contraseña">
+							<input id = "inputPassIni" class = "input" type = "password" name = "new_pass" placeholder = "contraseña" required>
 							<span class="icon is-small is-right">
-		                		<i class="fas fa-key"></i>
+		                		<i id = "iconPassIni" class="fas fa-key"></i>
 		            		</span>
 						</div>
 					</div>
 					<div class = "field">
 						<label class = "label">Confirmar contraseña</label> 
 						<div class = "control has-icons-right">	
-						<input class = "input" type = "password" name = "new_pass_confirm" placeholder = "contraseña">
+						<input id = "inputPassConfirm" class = "input" type = "password" name = "new_pass_confirm" placeholder = "contraseña" required>
 						<span class="icon is-small is-right">
-	                		<i class="fas fa-key"></i>
+	                		<i id = "iconPassConfirm" class="fas fa-key"></i>
 	            		</span>
 						</div>
 					</div>
@@ -62,5 +62,6 @@
 			</section>
 		</main>
 		<?php include 'secciones/footer.php';?>
+		<script src="js/validacion_cambio_contraseña.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

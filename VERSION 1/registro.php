@@ -12,6 +12,7 @@ include 'secciones/header.php';
 include 'secciones/nav.html';
 ?>
 <!--Etiqueta definida con bulma que establece el fondo de imagen de nuestra web, ubicado en estilos.css-->
+<body class = "body">
 <main>
 	<section>
 		<h1 class="title is-1">Bienvenido a Educalegre</h1>
@@ -116,6 +117,7 @@ include 'secciones/nav.html';
 		//Mostrar contenido de footer
 		include 'secciones/footer.php';
 	?>
+<script src="js/validacion_registro.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>

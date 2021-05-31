@@ -13,7 +13,7 @@
 	include 'secciones/header.php';
 	include 'secciones/nav.html';
 ?>
-	<body>
+	<body class = "body">
 		<!--Etiqueta definida con bulma que establece el fondo de imagen de nuestra web, ubicado en estilos.css-->
 		<main>
 			<section class = "section">	
@@ -36,18 +36,18 @@
 					<div class = "field">
 						<label class = "label">Correo de usuario</label> 
 						<div class = "control has-icons-right">
-							<input class = "input" type = "text" name = "correo_usu_acceso" placeholder = "correo@educalegre.com"/>
+							<input id = "inputEmail" class = "input" type = "email" name = "correo_usu_acceso" placeholder = "correo@educalegre.com" required/>
 							<span class="icon is-small is-right">
-		                		<i class="fas fa-envelope"></i>
+		                		<i id = "iconEmail" class="fas fa-envelope"></i>
 		            		</span>
 						</div>
 					</div>
 					<div class = "field">
 						<label class = "label">Contraseña</label> 
 						<div class = "control has-icons-right">
-							<input class = "input" type = "password" name = "usu_pass" placeholder = "contraseña">
+							<input id = "inputPass" class = "input" type = "password" name = "usu_pass" placeholder = "contraseña" required>
 							<span class="icon is-small is-right">
-		                		<i class="fas fa-key"></i>
+		                		<i id = "iconPass" class="fas fa-key"></i>
 		            		</span>
 						</div>
 					</div>
@@ -66,5 +66,6 @@
 			//Mostrar contenido de footer
 			include 'secciones/footer.php';
 		?>
+		<script src="js/validacion_login.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

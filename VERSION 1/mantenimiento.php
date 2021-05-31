@@ -2,6 +2,7 @@
 	$title = "En construcción";
 	include 'secciones/header.php';
 ?>
+<body class = "body">
 <nav>
 	<div id="navbarBasicExample" class="navbar-menu">
 	    <div class="navbar-start">

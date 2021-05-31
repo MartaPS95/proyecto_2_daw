@@ -85,6 +85,7 @@
            <a class="navbar-item" href = "./cambio_pass.php">  <!--Aqui puede ser una ventana js-->
             Cambiar contraseña
            </a>
+           <hr class="navbar-divider">
           <a class="navbar-item" href = "./php/cierre_sesion.php">  <!--Aqui puede ser una ventana js-->
             Cerrar sesión
           </a>
