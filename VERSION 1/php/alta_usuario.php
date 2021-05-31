@@ -5,43 +5,11 @@
 -->
 <?php
 	session_start();
+	include_once('lib.php');
+	include_once('conexion.php');
 	//Declaracion de las funciones
 	//Determinar si la contraseña ingresada es correcta en la comparativa a su confirmación
-	function confirmarContraseña($contra_ini, $contra_conf)
-	{
-		if(($contra_ini == $contra_conf) && (strlen($contra_ini) != 0) && (strlen($contra_conf) != 0))	
-			return true;
-		else return false;
-	}
-	//Buscar en la bd username y correo y verificar su existencia, ya que ninguno se puede repetir
-	function buscarCorreo($email, $conexion, $tabla)
-	{
-		$query = "SELECT email FROM " . $tabla . " WHERE email = \"" . $email . "\"";
-		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query buscarCorreo.");
-		while($reg = mysqli_fetch_array($busqueda))	
-			return true;
-		return false;
-	}
-	function noVacio($nom, $ape1, $ape2, $email, $dni, $tel)
-	{
-		if(strlen($nom) != 0 && strlen($ape1) != 0 && strlen($ape2) != 0 && strlen($email) != 0 && strlen($dni) != 0 && strlen($tel) != 0)
-			return true;
-		else return false;
-	}
-	//Dar de alta la información del usuario en la base de datos
-	function insertarUser($nom, $ape1, $ape2, $dni, $pass, $email, $tel, $tabla, $con)
-	{
-		$query = "INSERT INTO " . $tabla . "(nombre, apellido, segApellido, dni, contraseña, email, telefono) VALUES(\"" . $nom . "\", \"" . $ape1 . "\", \"" . $ape2 . "\", \"" . $dni . "\", SHA1(\"" . $pass . "\"), \"" . $email . "\", \"" . $tel . "\")";
-		mysqli_query($con, $query) or die("ERROR: La query no está bien escrita insertarUser.");
-	}
-	//Obtener la tabla en la que se va a realizar el alta de la información de usuario (alumno o profesor)
-	function obtenerTabla($tipo_usu)
-	{
-		if($tipo_usu == "tipo_usu_alumno_reg")
-			return "alumnos";
-		else if($tipo_usu == "tipo_usu_profesor_reg")
-			return "profesores";
-	}
+	
 	//Obtenemos los datos de registro:
 	$tipo_usu = $_POST['tipo_usu_section_reg'];
 	$tabla = obtenerTabla($tipo_usu);
@@ -54,8 +22,7 @@
 	$contra = $_POST['pass_reg'];
 	$contra_confirm = $_POST['pass_reg_confirm'];
 	//Establecemos la conexión a la base de datos "Educalegre" [MODO PRUEBAS]
-	$con = mysqli_connect("localhost", "root", "", "educalegre_pruebas") or die("ERROR: No se ha podido conectar con la base de datos");
-	$con->set_charset("utf8");	//Solución a los problemas con acentos y caracteres especiales.
+	//Solución a los problemas con acentos y caracteres especiales.
 	//Si no ha encontrado un usuario y correo existentes y la contraseña ha sido confirmada correctamente, damos de alta
 	/*Se comprueba que no se repite el usuario y que se ha introducido una contraseña funcional*/
 	//Sólo prueba de alta a esta página

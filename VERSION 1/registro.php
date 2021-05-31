@@ -18,7 +18,7 @@ include 'secciones/nav.html';
 		<!--Añadimos la acción de formulario para verificar y dar de alta al usuario-->
 		<!--Verificar con javascript y una ventana, dar de alta con php insertando en una base de datos-->
 		<form id="form_reg" class="box is-fluid" action="php/alta_usuario.php" method="POST">
-			<div class="field">
+			<div class="field has-text-centered">
 				<label class="label">Tipo de usuario</label>
 				<div class="control">
 					<div class="select is-rounded">
@@ -99,18 +99,16 @@ include 'secciones/nav.html';
 				
 				</div>
 			</div>
-			<div class="field">
-						<div class="control">
+			<div class="control has-text-centered">
 							<label class="checkbox">
 								<input type="checkbox">&nbsp;He aceptado los <a href="#">Términos y condiciones de
 									uso</a>
 							</label>
-						</div>
-					</div>
-					<div class="field is-grouped">
-						<input class="button is-link" type="submit" name="alta_user_reg" value="Darse de alta" />
-						<input class="button is-link is-light" type="reset" name="reseteo_datos_reg" value="Borrar" /><br>
-					</div>
+			</div>
+			<div class="field has-text-centered">
+				<input class="button is-link" type="submit" name="alta_user_reg" value="Darse de alta" />
+				<input class="button is-link is-light" type="reset" name="reseteo_datos_reg" value="Borrar" /><br>
+			</div>
 		</form>
 	</section>
 </main>

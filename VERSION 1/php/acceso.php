@@ -31,10 +31,10 @@
 	}
 	function obtenerApellidosUser($email, $conexion, $tabla)
 	{
-		$query = "SELECT apellido, segApellido FROM " . $tabla . " WHERE email = \"" . $email . "\"";
+		$query = "SELECT apellido, segundoApellido FROM " . $tabla . " WHERE email = \"" . $email . "\"";
 		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query obtenerApellidosUser.");
 		while($reg = mysqli_fetch_array($busqueda))	
-			$apellidos = $reg['apellido'] . " " . $reg['segApellido'];
+			$apellidos = $reg['apellido'] . " " . $reg['segundoApellido'];
 		return $apellidos;
 	}
 	//Determinar que los campos del formulario no estén vacíos
