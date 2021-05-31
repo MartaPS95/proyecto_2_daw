@@ -18,6 +18,6 @@
 	<link rel="stylesheet" href="fa/css/all.min.css">
 	<!--Favicon junto al título de cada una de las páginas de nuestra web-->
 	<link rel = "icon" href = "assets/img/edu_favicon.png" type = "image/png">
-	<script type = "text/javascript" src="./js/main.js?"></script>
+
 </head>
 <body>

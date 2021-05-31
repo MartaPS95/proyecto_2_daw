@@ -9,6 +9,7 @@ function confirmarContraseña($contra_ini, $contra_conf)
 function buscarCorreo($email, $conexion, $tabla)
 {
     $query = "SELECT email FROM " . $tabla . " WHERE email = \"" . $email . "\"";
+    echo $query;
     $busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query buscarCorreo.");
     while($reg = mysqli_fetch_array($busqueda))	
         return true;

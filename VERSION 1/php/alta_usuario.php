@@ -23,6 +23,7 @@
 
 	//Hay que realizar la busqueda en ambas tablas, ya que todos los usuarios cuentan
 	$query = "SELECT email, dni, telefono FROM alumnos WHERE email = \"" . $correo . "\" OR dni = \"" . $dni . "\" OR telefono = " . $tel . " UNION SELECT email, dni, telefono FROM profesores WHERE email = \"" . $correo . "\" OR dni = \"" . $dni . "\" OR telefono = " . $tel . "";
+	echo $query;
 	$resultado = mysqli_query($con, $query) or die("ERROR: Hay un problema en la query buscarCorreo.");
 	$filas=mysqli_num_rows($resultado);
 	if($filas==0){
