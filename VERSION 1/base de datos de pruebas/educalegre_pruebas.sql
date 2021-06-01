@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-05-2021 a las 17:25:09
--- Versión del servidor: 10.1.32-MariaDB
--- Versión de PHP: 7.2.5
+-- Tiempo de generación: 01-06-2021 a las 22:30:32
+-- Versión del servidor: 10.1.26-MariaDB
+-- Versión de PHP: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,20 +29,71 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `alumnos` (
-  `id_alum` mediumint(9) NOT NULL,
-  `nombre` varchar(30) DEFAULT NULL,
-  `apellidos` varchar(30) DEFAULT NULL,
-  `correo` varchar(30) DEFAULT NULL,
-  `username` varchar(30) DEFAULT NULL,
-  `contraseña` varchar(40) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_alum` int(11) NOT NULL,
+  `nombre` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `apellido` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `segApellido` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `dni` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `contraseña` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `email` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `telefono` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+-- --------------------------------------------------------
 
 --
--- Volcado de datos para la tabla `alumnos`
+-- Estructura de tabla para la tabla `archivos`
 --
 
-INSERT INTO `alumnos` (`id_alum`, `nombre`, `apellidos`, `correo`, `username`, `contraseña`) VALUES
-(1, 'alumno', 'prueba', 'alumno.prueba@educalegre.com', 'alumno.prueba', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+CREATE TABLE `archivos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `tipo` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `tamano` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `usuario` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clase`
+--
+
+CREATE TABLE `clase` (
+  `id_clase` int(11) NOT NULL,
+  `nombre` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `clave` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `usuario` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `misclases`
+--
+
+CREATE TABLE `misclases` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `clave` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `planificacion`
+--
+
+CREATE TABLE `planificacion` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `clave` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `titulo` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `texto` text COLLATE utf8mb4_spanish_ci NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `fechaentrega` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -51,20 +102,15 @@ INSERT INTO `alumnos` (`id_alum`, `nombre`, `apellidos`, `correo`, `username`, `
 --
 
 CREATE TABLE `profesores` (
-  `id_prof` mediumint(9) NOT NULL,
-  `nombre` varchar(30) DEFAULT NULL,
-  `apellidos` varchar(30) DEFAULT NULL,
-  `correo` varchar(30) DEFAULT NULL,
-  `username` varchar(30) DEFAULT NULL,
-  `contraseña` varchar(40) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `profesores`
---
-
-INSERT INTO `profesores` (`id_prof`, `nombre`, `apellidos`, `correo`, `username`, `contraseña`) VALUES
-(1, 'profesor', 'prueba', 'profesor.prueba@educalegre.com', 'profesor.prueba', '99800b85d3383e3a2fb45eb7d0066a4879a9dad0');
+  `id_prof` int(11) NOT NULL,
+  `nombre` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `apellido` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `segApellido` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `dni` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `contraseña` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `email` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `telefono` varchar(200) COLLATE utf8mb4_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Índices para tablas volcadas
@@ -75,6 +121,30 @@ INSERT INTO `profesores` (`id_prof`, `nombre`, `apellidos`, `correo`, `username`
 --
 ALTER TABLE `alumnos`
   ADD PRIMARY KEY (`id_alum`);
+
+--
+-- Indices de la tabla `archivos`
+--
+ALTER TABLE `archivos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `clase`
+--
+ALTER TABLE `clase`
+  ADD PRIMARY KEY (`id_clase`);
+
+--
+-- Indices de la tabla `misclases`
+--
+ALTER TABLE `misclases`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `planificacion`
+--
+ALTER TABLE `planificacion`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `profesores`
@@ -90,14 +160,32 @@ ALTER TABLE `profesores`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `id_alum` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id_alum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `archivos`
+--
+ALTER TABLE `archivos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+--
+-- AUTO_INCREMENT de la tabla `clase`
+--
+ALTER TABLE `clase`
+  MODIFY `id_clase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `misclases`
+--
+ALTER TABLE `misclases`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT de la tabla `planificacion`
+--
+ALTER TABLE `planificacion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT de la tabla `profesores`
 --
 ALTER TABLE `profesores`
-  MODIFY `id_prof` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-COMMIT;
+  MODIFY `id_prof` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,5 +1,5 @@
 <!--
-	El header mostrará las características de nuestro documento html y aplicará los estilos asociados al framework de bulma, 
+	El header mostrará las características de nuestro documento html y aplicará los estilos asociados al framework de bulma,
 	que es el que estamos empleando en este caso. Se ha añadido el uso de un favicon para distinguir nuestra pestaña
 -->
 <!DOCTYPE html>
