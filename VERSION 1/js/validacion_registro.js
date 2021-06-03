@@ -10,7 +10,7 @@ const input_dni = document.getElementById("inputDNI");
 const input_check_terms = document.getElementById("inputCheckTerms");
 //Definir iconos
 const icon_pass_ini = document.getElementById("iconPass1");
-const icon_pass_confirm = document.getElementById("iconPass1");
+const icon_pass_confirm = document.getElementById("iconPass2");
 const icon_email = document.getElementById("iconEmail");
 const icon_dni = document.getElementById("iconDNI");
 const icon_tel = document.getElementById("iconTel");
@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function validarFormulario(evento)
 {
 	//Validar cada campo
+	validarDato(validarNombreCompleto(input_name.value), input_name)
 	validarDato(validarCorreo(input_email.value), input_email, icon_email);
 	validarDato(validarContraseña(input_pass_ini.value, input_pass_confirm.value), input_pass_ini, icon_pass_ini);
 	validarDato(validarContraseña(input_pass_ini.value, input_pass_confirm.value), input_pass_confirm, icon_pass_confirm);
@@ -57,9 +58,9 @@ function cambiarCampos(input, icon, borde1, borde2, icono1, icono2)
 }
 
 //Aplicar expresiones regulares
-function validarNombreCompleto(nombre, ape1, ape2)
+function validarNombreCompleto(dato)
 {
-	if((nombre.length > 0 && nombre.length <= 45) && (ape1.length > 0 && ape2.length <= 45) && (ape2.length > 0 && ape2.length <= 45))
+	if(dato.length > 0 && dato.length <= 45)
 		return true;
 	else return false;
 }

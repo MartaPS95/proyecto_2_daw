@@ -13,6 +13,7 @@
 	//Obtenemos los datos de registro:
 	$tipo_usu = $_POST['tipo_usu_section_reg'];
 	$tabla = obtenerTabla($tipo_usu);
+	$id_user = obtenerIdUser($tipo_usu);
 	$nombre = $_POST['nombre_reg'];
 	$ape1 = $_POST['ape1_reg'];
 	$ape2 = $_POST['ape2_reg'];
@@ -22,16 +23,17 @@
 	$contraseña = $_POST['pass_reg'];
 
 	//Hay que realizar la busqueda en ambas tablas, ya que todos los usuarios cuentan
-	$query = "SELECT email, dni, telefono FROM alumnos WHERE email = \"" . $correo . "\" OR dni = \"" . $dni . "\" OR telefono = " . $tel . " UNION SELECT email, dni, telefono FROM profesores WHERE email = \"" . $correo . "\" OR dni = \"" . $dni . "\" OR telefono = " . $tel . "";
-	echo $query;
+	$query = "SELECT email, dni, telefono FROM alumno WHERE email = \"" . $correo . "\" OR dni = \"" . $dni . "\" OR telefono = \"" . $tel . "\" UNION SELECT email, dni, telefono FROM profesor WHERE email = \"" . $correo . "\" OR dni = \"" . $dni . "\" OR telefono = \"" . $tel . "\"";
+	//echo $query;
 	$resultado = mysqli_query($con, $query) or die("ERROR: Hay un problema en la query buscarCorreo.");
 	$filas=mysqli_num_rows($resultado);
 	if($filas==0){
 		//echo "ALTA CORRECTA";
-		insertarUser($nombre, $ape1, $ape2, $dni, $contraseña, $correo, $tel , $tabla, $con);
+
+		//insertarUser($id_user, $nombre, $ape1, $ape2, $dni, $contraseña, $correo, $tel , $tabla, $con);
 		//echo "<script>alert(\"Usuario dado de alta\");</script>";
 		echo "<script type = text/javascript>window.location.replace(\"../registro.php\");";
-		echo "alert(\"Alta correcta\")</script>";
+		//echo "alert(\"Alta correcta\")</script>";
 		//header("Location:../index.php");
 	}
 	else

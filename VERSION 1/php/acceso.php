@@ -9,33 +9,10 @@
 	profesor.prueba
 -->
 <?php
-	function obtenerTabla($tipo_usu)
-	{
-		if($tipo_usu == "tipo_usu_alumno")
-			return "alumnos";
-		else if($tipo_usu == "tipo_usu_profesor")
-			return "profesores";
-	}
-
-	function obtenerNombreUser($email, $conexion, $tabla)
-	{
-		$query = "SELECT nombre FROM " . $tabla . " WHERE email = \"" . $email . "\"";
-		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query obtenerNombreUser.");
-		while($reg = mysqli_fetch_array($busqueda))	
-			$nombre = $reg['nombre'];
-		return $nombre;
-	}
-	function obtenerApellidosUser($email, $conexion, $tabla)
-	{
-		$query = "SELECT apellido, segundoApellido FROM " . $tabla . " WHERE email = \"" . $email . "\"";
-		$busqueda = mysqli_query($conexion, $query) or die("ERROR: Hay un problema en la query obtenerApellidosUser.");
-		while($reg = mysqli_fetch_array($busqueda))	
-			$apellidos = $reg['apellido'] . " " . $reg['segundoApellido'];
-		return $apellidos;
-	}
-
 	session_start();
-
+	include_once('lib.php');
+	include_once('conexion.php');
+	
 	$tipo_usu = $_POST['tipo_usu_section_index'];
 	$tabla = obtenerTabla($tipo_usu);
 	$email = $_POST['correo_usu_acceso'];
@@ -48,8 +25,9 @@
 	
 	if($filas > 0){
 		//echo "ACCESO";
-		$_SESSION['nombre'] = obtenerNombreUser($email, $con, $tabla);
-		$_SESSION['apellidos'] = obtenerApellidosUser($email, $con, $tabla);
+		$nombre = obtenerNombreUser($email, $con, $tabla);
+		$apellidos = obtenerApellidosUser($email, $con, $tabla);
+		$_SESSION['nombre_completo'] = $nombre . " " . $apellidos;
 		header("Location:../" . $tabla . ".php");
 	}
 	else 
