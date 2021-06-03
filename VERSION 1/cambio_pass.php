@@ -14,7 +14,7 @@
 			<section>	
 				<h1 class="title is-1">Cambio de contraseña</h1>	
 				<form id = "form_pass_change" class="box" action = "php/actualizar_contraseña.php" method = "POST">
-					<div class="field">
+					<div class="field has-text-centered">
 						<label class="label">Tipo de usuario</label>
 						<div class="control">
 							<div class="select is-rounded">
@@ -39,7 +39,7 @@
 						<div class = "control has-icons-right">	
 							<input id = "inputPassIni" class = "input" type = "password" name = "new_pass" placeholder = "contraseña" required>
 							<span class="icon is-small is-right">
-		                		<i id = "iconPassIni" class="fas fa-key"></i>
+		                		<i id = "iconPass1" class="fas fa-key"></i>
 		            		</span>
 						</div>
 					</div>
@@ -48,20 +48,19 @@
 						<div class = "control has-icons-right">	
 						<input id = "inputPassConfirm" class = "input" type = "password" name = "new_pass_confirm" placeholder = "contraseña" required>
 						<span class="icon is-small is-right">
-	                		<i id = "iconPassConfirm" class="fas fa-key"></i>
+	                		<i id = "iconPass2" class="fas fa-key"></i>
 	            		</span>
 						</div>
 					</div>
-					<div class = "field is-grouped">
+					<div class = "field has-text-centered">
 						<!--Añadir un text area o mostrarlo después de escribir comentario de usuario cliente-->
 						<input class = "button is-link" type = "submit" name = "cambiar_pass" value = "Cambiar contraseña">
-						&nbsp;&nbsp;&nbsp;
 						<input class = "button is-link is-light" type = "reset" name = "borrar_datos" value = "Borrar">
 					</div>
 				</form>
 			</section>
 		</main>
 		<?php include 'secciones/footer.php';?>
-		<script src="js/validacion_cambio_contraseña.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/validaciones_exreg.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

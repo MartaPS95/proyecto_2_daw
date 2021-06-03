@@ -20,7 +20,7 @@
 				<h1 class="title is-1">Bienvenido a Educalegre</h1>			
 				<!--Formulario de login-->
 				<form id = "form_login" class="box" action = "php/acceso.php" method = "POST">
-					<div class="field">
+					<div class="field has-text-centered">
 						<!--Selección del usuario que somos: profesor o alumno-->
 						<label class="label">Tipo de usuario</label>
 						<div class="control">
@@ -45,20 +45,21 @@
 					<div class = "field">
 						<label class = "label">Contraseña</label> 
 						<div class = "control has-icons-right">
-							<input id = "inputPass" class = "input" type = "password" name = "usu_pass" placeholder = "contraseña" required>
+							<input id = "inputPassIni" class = "input" type = "password" name = "usu_pass" placeholder = "contraseña" required>
 							<span class="icon is-small is-right">
-		                		<i id = "iconPass" class="fas fa-key"></i>
+		                		<i id = "iconPass1" class="fas fa-key"></i>
 		            		</span>
 						</div>
 					</div>
-					<div class = "field is-grouped">
+					<div class = "field has-text-centered">
 						<!--Se aplica un submit que nos lleva a acceso.php donde se verificará la información-->
 						<input class = "button is-link" type = "submit" name = "acceso_user_index" value = "Acceder"/>
-						&nbsp;&nbsp;&nbsp;
 						<input class = "button is-link is-light" type = "reset" name = "reseteo_datos_index" value = "Borrar"/><br>
 					</div>
-					<!--Permite al usuario gestionar su contraseña o usuario mediante un formulario al que nos lleva el link cambio_pass[EN PRUEBAS]-->
-					<a href = "cambio_pass.php">¿Has olvidado tu contraseña?</a><br><!--Enlace sin destino-->
+					<div class = "field has-text-centered">
+						<!--Permite al usuario gestionar su contraseña o usuario mediante un formulario al que nos lleva el link cambio_pass[EN PRUEBAS]-->
+						<a href = "cambio_pass.php">¿Has olvidado tu contraseña?</a><br><!--Enlace sin destino-->
+					</div>
 				</form>
 			</section>
 		</main>
@@ -66,6 +67,6 @@
 			//Mostrar contenido de footer
 			include 'secciones/footer.php';
 		?>
-		<script src="js/validacion_login.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/validaciones_exreg.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

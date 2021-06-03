@@ -18,19 +18,22 @@
 		<main>
 			<section>	
 				<h1 class="title is-1">Contacto online</h1>			
-				<form id = "form_contact" class="box">
+				<form id = "form_contact" class="box" action = "mantenimiento.php" method = "POST">
 					<div class="field">
 						<label class="label" for="name">Nombre</label>
 						<div class="control has-icons-right">
-				            <input class="input needs-validation inputNameField" type="text" name="nom_usu_contacto" placeholder="Tu nombre" value="" id='inputName' required/>
+				            <input class="input" type="text" name="nom_usu_contacto" placeholder="Tu nombre" value="" id="inputName" required/>
+				            <span class="icon is-small is-right">
+				                <i id = "iconName" class = "fas fa-keyboard"></i>
+				            </span>
 					    </div>
 					</div>
 					<div class = "field">
 						<label class = "label">Correo</label>
 						<div class="control has-icons-right">
-							<input class = "input needs-validation inputEmailField" type = "email" name = "email_usu_contacto" id = 'inputEmailField' required>
+							<input id = "inputEmail" class = "input" type = "email" name = "email_usu_contacto" required>
 							<span class="icon is-small is-right">
-				                <i class="fas fa-envelope"></i>
+				                <i id = "iconEmail" class="fas fa-envelope"></i>
 				            </span>
 				        </div>
 					</div>
@@ -41,15 +44,9 @@
 					</div>
 					<div class = "field">
 					</div>
-					<div class = "field is-grouped">
-						<input class = "button is-link" type = "submit" name = "enviar_comentario" value = "Iniciar consulta" required>
-						&nbsp;&nbsp;&nbsp;
+					<div class = "field has-text-centered">
+						<input class = "button is-link" type = "submit" name = "enviar_comentario" value = "Iniciar consulta">
 						<input class = "button is-link is-light" type = "reset" name = "borrar_info_contacto" value = "Borrar">
-						<!--Teléfono de contacto [IMAGINARIO]-->
-						<span class = "icon is-large is-left">
-        					<i class = "fas fa-phone"></i>
-        				</span>
-        				<label class = "label">111 111 111</label> 
 					</div>
 				</form>
 			</section>
@@ -58,5 +55,6 @@
 			//Mostrar contenido de footer
 			include 'secciones/footer.php';
 		?>
+		<script src="js/validaciones_exreg.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>
