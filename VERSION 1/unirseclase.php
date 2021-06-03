@@ -52,9 +52,9 @@ if(isset($_REQUEST['e'])){
 		include 'secciones/aside_alumno.php';
 		?>
 
-        <div class = "container is-fluid">
-					  <h1>Mis clases</h1>
-          <div class="box is-fluid">
+        <div class = "container is-fluid" >
+					 <h1><strong>Mis Clases</strong></h1>
+          <div class="notification">
       <form action="unirseclase.php" method="POST">
          <div class="control">
           <input type="text" class="input" name="clave" placeholder="Clave de la Clase" required>
@@ -76,27 +76,27 @@ if(isset($_REQUEST['e'])){
               $clases2= mysqli_query ($con3, $query4) or die ("Problema con query");
 
 
-							echo "<HTML><TABLE Border=10 CellPadding=5><TR>";
+							echo "<HTML><TABLE Border=10 CellPadding=5 style='margin-left: auto; margin-right: auto; font-size:22px' class = 'table is-bordered'><TR>";
 
 							echo "<th bgcolor=Green>NOMBRE</th><th bgcolor=lightblue>ELIMINAR LA CLASE</th><th bgcolor=darkorange>PLANIFICACIÓN</th></TR>";
 
 					  $vezes = 0;
 					  while($renglon = mysqli_fetch_row($clases2))
 					  {
-					
+
 							    echo"<tr>";
 
-							    echo "<td>".$renglon[0]."</td>";
+							    echo "<td align='center'>".$renglon[0]."</td>";
 
-							    echo "<td><a href='unirseclase.php?e=".$renglon[1]."'>Eliminar</a></td>";
-									echo "<td><a href='verplanificacion.php?clave=".$renglon[2]."'>Ver</a></td>";
+							    echo "<td align='center'><a class='button is-link is-outlined' href='unirseclase.php?e=".$renglon[1]."'>Eliminar</a></td>";
+									echo "<td align='center'><a class='button is-link is-outlined' href='verplanificacion.php?clave=".$renglon[2]."'>Ver</a></td>";
 
 							    echo"</tr>";
 							    $vezes++;
 
 							}
 							if ($vezes == 0)
-										echo "<td colspan='3'> No existe ningún registro en la tabla </td>";
+										echo "<td colspan='3' align='center'> No existe ningún registro en la tabla </td>";
 
 					              ?>
           </table>

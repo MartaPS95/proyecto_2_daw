@@ -41,7 +41,7 @@ if(isset($_REQUEST['e'])){
 				?>
 
         <div class = "container is-fluid">
-					  <h1>Gestión de clases</h1>
+					  <h1><strong>Gestión de clases</strong></h1>
           <div class="notification">
       <form action="crearclase.php" method="POST">
          <div class="control">
@@ -60,7 +60,7 @@ if(isset($_REQUEST['e'])){
               $query2 = "SELECT * FROM " .$tabla. " WHERE usuario='". $email ."'";
               $clases= mysqli_query ($con2, $query2) or die ("Problema con query");
 
-										echo "<HTML><TABLE Border=10 CellPadding=5><TR>";
+										echo "<HTML><TABLE Border=10 CellPadding=5 style='margin-left: auto; margin-right: auto; font-size:22px' class = 'table is-bordered'><TR>";
 
 										echo "<th bgcolor=Green>NOMBRE</th><th bgcolor=Red>CLAVE</th><th bgcolor=lightblue>ELIMINAR LA CLASE</th><th bgcolor=darkorange>PLANIFICACIÓN</th></TR>";
 
@@ -70,17 +70,17 @@ if(isset($_REQUEST['e'])){
 
 								    echo"<tr>";
 
-								    echo "<td>".$renglon[1]."</td>";
-								    echo "<td>".$renglon[2]."</td>";
-								    echo "<td><a href='crearclase.php?e=".$renglon[0]."'>Eliminar</a></td>";
-										echo "<td><a href='planificacion.php?clave=".$renglon[2]."'>Ver</a></td>";
+								    echo "<td align='center'>".$renglon[1]."</td>";
+								    echo "<td align='center'>".$renglon[2]."</td>";
+								    echo "<td align='center'><a class='button is-link is-outlined' href='crearclase.php?e=".$renglon[0]."'>Eliminar</a></td>";
+										echo "<td align='center'><a class='button is-link is-outlined' href='planificacion.php?clave=".$renglon[2]."'>Ver</a></td>";
 
 								    echo"</tr>";
 								    $vezes++;
 
 								}
 								if ($vezes == 0)
-											echo "<td colspan='3'> No existe ningún registro en la tabla </td>";
+											echo "<td colspan='3' align='center'> No existe ningún registro en la tabla </td>";
 
               ?>
           </table>

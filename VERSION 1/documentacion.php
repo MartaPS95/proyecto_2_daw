@@ -40,8 +40,9 @@ $con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problema
     					<div class = "container is-fluid">
 
     						<div class="container is-fluid is-max-desktop">
+									  <h1><strong>Subir Documentación</strong></h1>
                     <div class="notification">
-                      <h1>Subir Documentación</h1>
+
                     <form action="documentacion.php" enctype="multipart/form-data" method="post">
                       <label for="archivo">Subir archivo</label><br>
 
@@ -53,8 +54,8 @@ $con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problema
                     <br><br>
 
                       <?php
-                      echo "<HTML><TABLE Border=10 CellPadding=5><TR>";
-              
+                      echo "<HTML><TABLE Border=10 CellPadding=5 style='margin-left: auto; margin-right: auto; font-size:18px' class = 'table is-bordered'><TR>";
+
                       echo "<th bgcolor=Green>NOMBRE</th><th bgcolor=Red>TIPO</th><th bgcolor=lightblue>TAMAÑO</th><th bgcolor=darkorange>DESCARGAR</th><th bgcolor=pink>ELIMINAR</th></TR>";
 
                       if($numeroArchivos>0){
@@ -64,21 +65,21 @@ $con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problema
 
                         echo"<tr>";
 
-                        echo "<td>".$renglon['nombre']."</td>";
-                        echo "<td>".$renglon['tipo']."</td>";
-                        echo "<td>".($renglon['tamano']/1024)."KB</td>";
-                    		echo "<td><a href='archivosprofesor/".$renglon['nombre']."'>Descargar</a></td>";
-                        echo "<td><a href='documentacion.php?e=".$renglon['id']."'>Eliminar</a></td>";
+                        echo "<td align='center'>".$renglon['nombre']."</td>";
+                        echo "<td align='center'>".$renglon['tipo']."</td>";
+                        echo "<td align='center'>".($renglon['tamano']/1024)."KB</td>";
+                    		echo "<td align='center'><a class='button is-link is-outlined' href='archivosprofesor/".$renglon['nombre']."'>Descargar</a></td>";
+                        echo "<td align='center'><a class='button is-link is-outlined' href='documentacion.php?e=".$renglon['id']."'>Eliminar</a></td>";
 
                         echo"</tr>";
                         $vezes++;
 
                     }
                     if ($vezes == 0)
-                    			echo "<td colspan='5'> No existe ningún registro en la tabla </td>";
+                    			echo "<td colspan='5' align='center'> No existe ningún registro en la tabla </td>";
 
                     }else{
-                      	echo "<td colspan='5'> No existe ningún registro en la tabla </td>";
+                      	echo "<td colspan='5 align='center'> No existe ningún registro en la tabla </td>";
                     }
               	        ?>
                     </table>

@@ -58,8 +58,9 @@ if(isset($_REQUEST['m'])){
         ?>
 
         <div class = "container is-fluid">
+					  <h1><strong>Nueva Actividad</strong></h1>
 					<div class="notification">
-            <h1>Nueva Actividad</h1>
+
 
           <div class="box is-fluid">
       <form action="planificacion.php" method="POST">
@@ -95,7 +96,7 @@ if(isset($_REQUEST['m'])){
 						$vezes = 0;
 						while($renglon = mysqli_fetch_array($ac))
 						{
-				
+
 						echo "<br>";
 						echo "<h1 style='text-align: left;'>".$renglon['titulo']."</h1>";
 						echo "<p>".$renglon['texto']."</p>";
