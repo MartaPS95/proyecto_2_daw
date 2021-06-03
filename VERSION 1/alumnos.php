@@ -26,6 +26,7 @@
 
 			</section>
 		</main>
+
 		<?php include 'secciones/footer.php';?>
 	</body>
 </html>

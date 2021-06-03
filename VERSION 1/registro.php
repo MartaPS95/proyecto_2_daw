@@ -19,7 +19,7 @@ include 'secciones/nav.html';
 		<!--Añadimos la acción de formulario para verificar y dar de alta al usuario-->
 		<!--Verificar con javascript y una ventana, dar de alta con php insertando en una base de datos-->
 		<form id="form_reg" class="box is-fluid" action="php/alta_usuario.php" method="POST">
-			<div class="field">
+			<div class="field has-text-centered">
 				<label class="label">Tipo de usuario</label>
 				<div class="control">
 					<div class="select is-rounded">
@@ -37,23 +37,23 @@ include 'secciones/nav.html';
 
 					<div class="field">
 						<label for="nombre_reg" class="label">Nombre</label>
-						<input id = "inputName" class="input" type="text" name="nombre_reg" placeholder="Tu nombre" /><br>
+						<input class="input" type="text" name="nombre_reg" id="nombre_reg" placeholder="Tu nombre" /><br>
 					</div>
 					<div class="field">
 						<label for="ape1_reg" class="label">Primer apellido</label>
-						<input id = "inputApe1" class="input" type="text" name="ape1_reg" placeholder="Tu primer apellido"><br>
+						<input class="input" type="text" name="ape1_reg" id="ape1_reg" placeholder="Tu primer apellido"><br>
 					</div>
 					<div class="field">
 						<label for="ape2_reg" class="label">Segundo apellido</label>
-						<input id = "inputApe2" class="input" type="text" name="ape2_reg" placeholder="Tu segundo apellido"><br>
+						<input class="input" type="text" name="ape2_reg" id="ape2_reg" placeholder="Tu segundo apellido"><br>
 					</div>
 				
 					<div class="field">
 						<label for="pass_reg" class="label">Contraseña</label>
 						<div class="control has-icons-right">
-							<input id = "inputPassIni" class="input" type="password" name="pass_reg"  placeholder="Contraseña">
+							<input class="input" type="password" name="pass_reg" id="pass_reg" placeholder="Contraseña">
 							<span class="icon is-small is-right">
-								<i id = "iconPass1" class="fas fa-key"></i>
+								<i class="fas fa-key"></i>
 							</span>
 						</div>
 					</div>
@@ -63,9 +63,9 @@ include 'secciones/nav.html';
 					<div class="field">
 						<label class="label">DNI</label>
 						<div class="control has-icons-right">
-							<input id = "inputDNI" class="input" type="text" name="dni_reg" placeholder="DNI/NIE" />
+							<input class="input" type="text" name="dni_reg" placeholder="DNI/NIE" />
 							<span class="icon is-small is-right">
-								<i id = "iconDNI" class="fas fa-id-card"></i>
+								<i class="fas fa-envelope"></i>
 							</span>
 						</div>
 					</div>
@@ -73,46 +73,43 @@ include 'secciones/nav.html';
 					<div class="field">
 						<label class="label">Correo</label>
 						<div class="control has-icons-right">
-							<input id = "inputEmail" class="input" type="email" name="correo_reg" placeholder="usuario@educalegre.com" />
+							<input class="input" type="email" name="correo_reg" placeholder="usuario@educalegre.com" />
 							<span class="icon is-small is-right">
-								<i id = "iconEmail" class="fas fa-envelope"></i>
+								<i class="fas fa-envelope"></i>
 							</span>
 						</div>
 					</div>
 					<div class="field">
 						<label class="label">Teléfono</label>
 						<div class="control has-icons-right">
-							<input id = "inputTel" class="input" type="text" name="tel_reg" placeholder="Fijo/móvil" />
+							<input class="input" type="text" name="tel_reg" placeholder="Fijo/móvil" />
 							<span class="icon is-small is-right">
-								<i id = "iconTel" class="fas fa-phone"></i>
+								<i class="fas fa-phone"></i>
 							</span>
 						</div>
 					</div>
 					<div class="field">
 						<label for="pass_reg_confirm" class="label">Confirmar contraseña</label>
 						<div class="control has-icons-right">
-							<input id = "inputPassConfirm" class="input" type="password" name="pass_reg_confirm" placeholder="Contraseña">
+							<input class="input" type="password" name="pass_reg_confirm" id="pass_reg_confirm" placeholder="Contraseña">
 							<span class="icon is-small is-right">
-								<i id = "iconPass2" class="fas fa-key"></i>
+								<i class="fas fa-key"></i>
 							</span>
 						</div>
 					</div>
 				
 				</div>
 			</div>
-			<div class="field">
-						<div class="control">
+			<div class="control has-text-centered">
 							<label class="checkbox">
-								<input id = "inputCheckTerms" type="checkbox">&nbsp;He aceptado los <a href="mantenimiento.php">Términos y condiciones de
+								<input type="checkbox">&nbsp;He aceptado los <a href="#">Términos y condiciones de
 									uso</a>
 							</label>
-						</div>
-					</div>
-					<div class="field is-grouped">
-						<input class="button is-link" type="submit" name="alta_user_reg" value="Darse de alta" />
-						&nbsp;&nbsp;&nbsp;
-						<input class="button is-link is-light" type="reset" name="reseteo_datos_reg" value="Borrar" /><br>
-					</div>
+			</div>
+			<div class="field has-text-centered">
+				<input class="button is-link" type="submit" name="alta_user_reg" value="Darse de alta" />
+				<input class="button is-link is-light" type="reset" name="reseteo_datos_reg" value="Borrar" /><br>
+			</div>
 		</form>
 	</section>
 </main>

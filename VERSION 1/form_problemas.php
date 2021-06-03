@@ -11,7 +11,7 @@
 	include 'secciones/header.php';
 	include 'secciones/nav.html';
 ?>
-	<body>
+	<body class = "body">
 		<main>
 			<section>	
 				<h1 class="title is-1">INFORME DE UN PROBLEMA</h1>			

@@ -28,6 +28,10 @@ body{
 	border: 1px solid gray;
 	padding: 2rem;
 }
+.medium {
+	margin-left: auto;
+	margin-right: auto;
+}
 /*Aplicamos las clases que determinan ancho y alto de cada formulario en función a su contenido*/
 #form_login
 {
@@ -39,6 +43,12 @@ body{
 {
 	width: 40rem;
 	height: 35rem;
+}
+.control.has-text-centered {
+	margin-bottom: 0.4rem;
+}
+input.button.is-link {
+    margin-left: 0.3rem;
 }
 /*Formulario de contacto [contacto.php]*/
 #form_contact
@@ -100,6 +110,19 @@ main{
   background-color: #ffbf69; 
 }
 
+
+
+/* Menu de Alumnos y Profesores */
+
+.logged {
+	display: grid;
+	grid-template-columns: 20rem 1fr;
+}
+
+aside{
+	background-color: aliceblue;
+	text-align: center;
+}
 .navbar-end .navbar-dropdown:last-child {
     left: -60px;
   }

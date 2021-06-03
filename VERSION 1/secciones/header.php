@@ -20,3 +20,4 @@
 	<link rel = "icon" href = "assets/img/edu_favicon.png" type = "image/png">
 	<script type = "text/javascript" src="./js/main.js?"></script>
 </head>
+<body>
