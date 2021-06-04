@@ -18,7 +18,7 @@
 		<main>
 			<section>	
 				<h1 class="title is-1">Contacto online</h1>			
-				<form id = "form_contact" class="box" action = "mantenimiento.php" method = "POST">
+				<form id = "form_contact" class="box" action = "php/logs_contacto.php" method = "POST">
 					<div class="field">
 						<label class="label" for="name">Nombre</label>
 						<div class="control has-icons-right">
@@ -40,7 +40,7 @@
 					<div>
 						<!--En este textarea el usuario podrá escribir su consulta-->
 						<label class = "label">Consulta</label>
-						<textarea class="textarea" placeholder="Escriba aquí su consulta" required></textarea>
+						<textarea class="textarea" placeholder="Escriba aquí su consulta" name = "consulta_contacto" required></textarea>
 					</div>
 					<div class = "field">
 					</div>

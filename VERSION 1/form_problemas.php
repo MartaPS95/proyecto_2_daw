@@ -15,7 +15,7 @@
 		<main>
 			<section>	
 				<h1 class="title is-1">INFORME DE UN PROBLEMA</h1>			
-				<form id = "form_issues" class="box" action = "mantenimiento.php" method = "POST">
+				<form id = "form_issues" class="box" action = "php/logs_incidencias.php" method = "POST">
 					<div class = "field has-text-centered">
 						<label class = "label">Contactar con</label>
 						<div class = "control">

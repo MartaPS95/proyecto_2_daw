@@ -83,7 +83,6 @@ function validarContacto(evento)
 		this.submit();
 	//En caso contrario, nos quedamos en la página actual indicando los valores que no son correctos
 	else
-		alert("error");
 		evento.preventDefault();
 }
 
