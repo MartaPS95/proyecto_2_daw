@@ -39,7 +39,6 @@
 	$nombreCompleto = $_REQUEST['nom_usu_contacto'] . " " . $_REQUEST['ape1_contacto'] . " " . $_REQUEST['ape2_contacto'];
 	$correo = $_POST['email_usu_contacto'];
 	$id_inc = generarIdIncidencia($destino);
-	echo "Su nombre completo es: " . $nombreCompleto . "<br>Su correo es: " . $correo;
 	//Generamos un archivo de texto de lectura y append,
 	$reg = 0;
 	$log_incidencia = fopen("logs/log_incidencias.dat", "a") or die("Error al crear el log");
@@ -62,6 +61,5 @@
 	fputs($log_incidencia, "\n\n");
 	$reg++;
 	fclose($log_incidencia);
-	echo "<script type = text/javascript>alert(\"Incidencia " . $id_inc . " guardada\");</script>";
-	//echo "<script type = text/javascript>alert(\"Incidencia XXXX guardada\");</script>";
+	echo "<script type = text/javascript>alert(\"Incidencia " . $id_inc . " guardada\");window.location.replace(\"../contacto.php\");</script>";
 ?>
