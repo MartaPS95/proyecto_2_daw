@@ -28,6 +28,7 @@
 		$nombre = obtenerNombreUser($email, $con, $tabla);
 		$apellidos = obtenerApellidosUser($email, $con, $tabla);
 		$_SESSION['nombre_completo'] = $nombre . " " . $apellidos;
+		$_SESSION['email'] = $email;
 		header("Location:../" . $tabla . ".php");
 	}
 	else 

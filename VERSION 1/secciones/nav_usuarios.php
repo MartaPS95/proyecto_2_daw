@@ -7,17 +7,21 @@
 <?php
   /*Se inicia la sesión que guardará en nuestro nav el nombre y el apellido del usuario*/
   session_start();
+  /*
   if(isset($_SESSION['nombre']) && isset($_SESSION['apellidos']))
   {
-      $nombre = $_SESSION['nombre'];
-      $apellidos = $_SESSION['apellidos'];
+      $nombre_completo = @_SESSION['nombre'] . " " . @$_SESSION['apellidos'];
   }
   //En caso de que el usuario no haya ingresado campos muestra error [En pruebas de nav]
   else
   {
     //Imaginemos que el usuario vuelve a la página de sesión después de haber cerrado, podríamos volver a login o mostrar un error de que no hay sesión.
     header("Location:./php/prueba_sesion.php");
-  }
+  }*/
+  //USUARIOS DE PRUEBAS MIENTRAS NO FUNCIONA LA BASE DE DATOS
+  $nombre_completo= "Usuario prueba prueba";
+  $email= "usuario.prueba@educalegre.com";
+
 ?>
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
@@ -68,7 +72,7 @@
     <div class="navbar-end is-fluid">
       <div class="navbar-item">
         <!--Mostramos el nombre y apellido del usuario actual-->
-        <strong><?php echo $nombre . " " . $apellidos;?></strong>
+        <strong><?php echo $_SESSION['nombre_completo'];?></strong>
       </div>
       <div class = "navbar-item">
         <!--Se aplica un submit que nos lleva a acceso.php donde se verificará la información-->

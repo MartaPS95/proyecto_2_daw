@@ -21,12 +21,13 @@ body{
 .box
 {
 	background-color: white;
-	margin-top: 5rem;
-	margin-bottom: 5rem;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 	margin-left: auto;
 	margin-right: auto;
 	border: 1px solid gray;
 	padding: 2rem;
+	height: 30rem;
 }
 .medium {
 	margin-left: auto;
@@ -110,8 +111,6 @@ main{
   background-color: #ffbf69; 
 }
 
-
-
 /* Menu de Alumnos y Profesores */
 
 .logged {
@@ -125,4 +124,21 @@ aside{
 }
 .navbar-end .navbar-dropdown:last-child {
     left: -60px;
-  }
+}
+
+/*Configuración del estilo de sidebar de las sesiones de usuarios*/
+#aside_style
+{
+	font-family: Verdana;
+	font-size: x-large;
+	background-color: aliceblue; 
+}
+aside{
+	background-color: aliceblue;
+	text-align: center;
+}
+.menu-label
+{
+	font-family: Verdana;
+	font-size: xx-large;
+}
