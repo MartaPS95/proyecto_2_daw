@@ -11,19 +11,18 @@
 <?php
 	session_start();
 	include_once('lib.php');
-	include_once('conexion.php');
-	
+	include_once('../config/conexion.php');
 	$tipo_usu = $_POST['tipo_usu_section_index'];
 	$tabla = obtenerTabla($tipo_usu);
 	$email = $_POST['correo_usu_acceso'];
 	$contraseña = $_POST['usu_pass'];
 
-	require("conexion_mysql.php");
 	$query = "SELECT email, contraseña FROM " . $tabla . " WHERE email = \"" . $email . "\" AND contraseña = SHA1(\"" . $contraseña . "\")";
-	$resultado = mysqli_query($con, $query) or die("ERROR: Hay un problema en la query buscarCorreo.");
+	$resultado = mysqli_query($con, $query) or die("ERROR: Hay un problema en la query buscarCorreo." . mysqli_error($con));
 	$filas=mysqli_num_rows($resultado);
 	
-	if($filas > 0){
+	if($filas > 0)
+	{
 		//echo "ACCESO";
 		$nombre = obtenerNombreUser($email, $con, $tabla);
 		$apellidos = obtenerApellidosUser($email, $con, $tabla);
@@ -32,8 +31,8 @@
 		header("Location:../" . $tabla . ".php");
 	}
 	else 
-		//echo "ERROR";
-		header("Location:../index.php");
+		echo "<script type = text/javascript>window.location.replace(\"../index.php\");";
+		echo "alert(\"Tu usuario no existe, debes darlo de alta\")</script>";
 	mysqli_free_result($resultado);
 	mysqli_close($con);	//Cerramos la conexión
 ?>

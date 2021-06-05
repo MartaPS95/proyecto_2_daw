@@ -86,7 +86,7 @@
 								?>
 								</table>
 								<br>
-								<a class="button is-link" href='alumnos.php'>Volver</a>
+								<a class="button is-link" href='alumno.php'>Volver</a>
 							</div>
 						</div>
 					</div>

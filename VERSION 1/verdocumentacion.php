@@ -50,7 +50,7 @@ $con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problema
               ?>
               </table>
               <br><br>
-              <a class="button is-link" href='alumnos.php'>Volver</a>
+              <a class="button is-link" href='alumno.php'>Volver</a>
               </div>
             </div>
           </div>

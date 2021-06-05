@@ -7,20 +7,18 @@
 <?php
   /*Se inicia la sesión que guardará en nuestro nav el nombre y el apellido del usuario*/
   session_start();
-  /*
-  if(isset($_SESSION['nombre']) && isset($_SESSION['apellidos']))
+  if(isset($_SESSION['nombre_completo']) && isset($_SESSION['email']))
   {
-      $nombre_completo = @_SESSION['nombre'] . " " . @$_SESSION['apellidos'];
+      $nombre_completo = $_SESSION['nombre_completo'];
+      $email = $_SESSION['email'];
   }
   //En caso de que el usuario no haya ingresado campos muestra error [En pruebas de nav]
   else
   {
     //Imaginemos que el usuario vuelve a la página de sesión después de haber cerrado, podríamos volver a login o mostrar un error de que no hay sesión.
     header("Location:./php/prueba_sesion.php");
-  }*/
+  }
   //USUARIOS DE PRUEBAS MIENTRAS NO FUNCIONA LA BASE DE DATOS
-  $nombre_completo= "Usuario prueba prueba";
-  $email= "usuario.prueba@educalegre.com";
 
 ?>
 <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -86,6 +84,8 @@
         </a>
         <hr class="navbar-divider">
         <div class="navbar-dropdown">
+            <a class = "navbar-item"><?php echo $email?>
+            </a>
            <a class="navbar-item" href = "./cambio_pass.php">  <!--Aqui puede ser una ventana js-->
             Cambiar contraseña
            </a>

@@ -11,7 +11,7 @@
 <aside class="menu" id = "aside_style">
   <p class="menu-label">General</p>
   <ul class="menu-list">
-    <li><a href='profesores.php'>Principal</a></li>
+    <li><a href='profesor.php'>Principal</a></li>
   </ul>
   <p class="menu-label">Planificación</p>
   <ul class="menu-list">

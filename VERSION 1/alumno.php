@@ -8,7 +8,9 @@
 	//Header para la página de alumnos
 	include 'secciones/header.php';
 	include 'secciones/nav_usuarios.php';
-
+	//Incluimos la configuración de la base de datos
+	include_once 'config/conexion.php';
+	include_once 'php/lib.php';
 	if(isset($_REQUEST['e']))
 	{
 		$tabla2="misclases";
@@ -25,13 +27,12 @@
 					<div class = "box is-fluid">
 						<h1>Bienvenido <strong><?php echo $nombre_completo;?></strong></h1>
 						<div class="container is-fluid is-max-desktop">
-							<div class="notification is-primary is-link">
 							<?php
 								$tabla='clase';
 								$tabla2='misclases';
-								$con3=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problemas con la conexión a la base de datos");
+								//$con3=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problemas con la conexión a la base de datos");
 								$query4 = "SELECT " . $tabla. ".nombre,". $tabla2 .".id, " . $tabla. ".clave FROM " . $tabla. ", " . $tabla2 . " WHERE clase.clave=misclases.clave AND misclases.usuario='". $email ."'";
-								$clases2= mysqli_query ($con3, $query4) or die ("Problema con query");
+								$clases2= mysqli_query ($con, $query4) or die ("Problema con query");
 
 								echo "<HTML><TABLE Border=10 CellPadding=5 style='margin-left: auto; margin-right: auto; font-size:22px' class = 'table is-bordered'><TR>";
 								echo "<th bgcolor=Green>NOMBRE</th><th bgcolor=lightblue>ELIMINAR LA CLASE</th><th bgcolor=darkorange>ACTIVIDADES</th></TR>";
@@ -55,13 +56,6 @@
 									echo "<td colspan='3' align='center'> No existe ningún registro en la tabla </td>";
 									echo"</table>";
 								?>
-							</div>
-							<div class="notification is-primary is-link">
-								This container is <strong>centered</strong> on desktop and larger viewports.
-							</div>
-							<div class="notification is-primary is-link">
-								This container is <strong>centered</strong> on desktop and larger viewports.
-							</div>
 						</div>
 					</div>
 				</section>
