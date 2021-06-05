@@ -27,7 +27,7 @@ $title = 'Educalegre Profesores';
 if(isset($_REQUEST['e'])){
   $tabla='clase';
   $con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problemas con la conexión a la base de datos");
-  $query = "DELETE FROM ".$tabla." WHERE idclase=" .$_REQUEST['e'];
+  $query = "DELETE FROM ".$tabla." WHERE id_clase=" .$_REQUEST['e'];
   $ejecutar= mysqli_query ($con, $query) or die ("Problema con query");
 }
 ?>
@@ -72,7 +72,7 @@ if(isset($_REQUEST['e'])){
 
 								    echo "<td align='center'>".$renglon[1]."</td>";
 								    echo "<td align='center'>".$renglon[2]."</td>";
-								    echo "<td align='center'><a class='button is-link is-outlined' href='crearclase.php?e=".$renglon[0]."'>Eliminar</a></td>";
+								    echo "<td align='center'><a class='button is-danger is-outlined' href='crearclase.php?e=".$renglon[0]."'>Eliminar</a></td>";
 										echo "<td align='center'><a class='button is-link is-outlined' href='planificacion.php?clave=".$renglon[2]."'>Ver</a></td>";
 
 								    echo"</tr>";

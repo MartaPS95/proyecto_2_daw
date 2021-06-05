@@ -47,7 +47,7 @@ $con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problema
                         echo "<td align='center'>".$renglon['nombre']."</td>";
                         echo "<td align='center'>".$renglon['tipo']."</td>";
                         echo "<td align='center'>".($renglon['tamano']/1024)."KB</td>";
-                    		echo "<td align='center'><a class='button is-link is-outlined' href='archivosprofesor/".$renglon['nombre']."'>Descargar</a></td>";
+                    		echo "<td align='center'><a class='button is-link is-outlined' href='archivosprofesor/".$renglon['id'].$renglon['nombre']."'>Descargar</a></td>";
 
 
                         echo"</tr>";

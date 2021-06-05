@@ -17,7 +17,12 @@ $con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problema
 
       $query = "INSERT INTO ". $tabla ." (nombre, tipo, tamano, usuario) VALUES (\"" . $nombreArchivo . "\", \"" . $tipo . "\",\"" . $tamaño . "\", \"" . $email . "\")";
       mysqli_query ($con, $query) or die ("Problema con query");
-      move_uploaded_file($_FILES['archivo']['tmp_name'],"archivosprofesor/".$nombreArchivo);
+			$rs = "SELECT @@identity AS id";
+			$cons=mysqli_query ($con, $rs) or die ("Problema con query");
+			if ($row = mysqli_fetch_row($cons)) {
+			$id = trim($row[0]);
+			}
+      move_uploaded_file($_FILES['archivo']['tmp_name'],"archivosprofesor/".$id.$nombreArchivo);
     }
     if(isset($_REQUEST['e'])){
       $query3 = "DELETE FROM ".$tabla." WHERE id=" .$_REQUEST['e'];
@@ -47,7 +52,7 @@ $con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problema
                       <label for="archivo">Subir archivo</label><br>
 
                       <input type="file" name="archivo" required><br><br>
-                      <input type="hidden" name="subir" value="ok">
+                      <input type="hidden" name="subir" value="subir">
                       <input type="submit" class='button is-primary' value="Subir archivo">
 
                     </form>
@@ -68,8 +73,8 @@ $con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problema
                         echo "<td align='center'>".$renglon['nombre']."</td>";
                         echo "<td align='center'>".$renglon['tipo']."</td>";
                         echo "<td align='center'>".($renglon['tamano']/1024)."KB</td>";
-                    		echo "<td align='center'><a class='button is-link is-outlined' href='archivosprofesor/".$renglon['nombre']."'>Descargar</a></td>";
-                        echo "<td align='center'><a class='button is-link is-outlined' href='documentacion.php?e=".$renglon['id']."'>Eliminar</a></td>";
+                    		echo "<td align='center'><a class='button is-link is-outlined' href='archivosprofesor/".$renglon['id'].$renglon['nombre']."'>Descargar</a></td>";
+                        echo "<td align='center'><a class='button is-danger is-outlined' href='documentacion.php?e=".$renglon['id']."'>Eliminar</a></td>";
 
                         echo"</tr>";
                         $vezes++;

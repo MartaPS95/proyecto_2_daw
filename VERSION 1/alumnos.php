@@ -58,7 +58,7 @@
 
 									echo "<td align='center'>".$renglon[0]."</td>";
 
-									echo "<td align='center'><a class='button is-link is-outlined' href='unirseclase.php?e=".$renglon[1]."'>Eliminar</a></td>";
+									echo "<td align='center'><a class='button is-danger is-outlined' href='alumnos.php?e=".$renglon[1]."'>Eliminar</a></td>";
 									echo "<td align='center'><a class='button is-link is-outlined' href='verplanificacion.php?clave=".$renglon[2]."'>Ver</a></td>";
 
 									echo"</tr>";

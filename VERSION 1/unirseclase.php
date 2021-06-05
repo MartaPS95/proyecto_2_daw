@@ -61,7 +61,7 @@ if(isset($_REQUEST['e'])){
           <input type="hidden" name="tabla" value="clase">
         </div><br>
         <div class="control">
-          <input type="submit" name ="submit" class="button is-success" value="unirse">
+          <input type="submit" name ="submit" class="button is-success" value="Unirse">
           </div>
           </form>
           <hr>
@@ -88,7 +88,7 @@ if(isset($_REQUEST['e'])){
 
 							    echo "<td align='center'>".$renglon[0]."</td>";
 
-							    echo "<td align='center'><a class='button is-link is-outlined' href='unirseclase.php?e=".$renglon[1]."'>Eliminar</a></td>";
+							    echo "<td align='center'><a class='button is-danger is-outlined' href='unirseclase.php?e=".$renglon[1]."'>Eliminar</a></td>";
 									echo "<td align='center'><a class='button is-link is-outlined' href='verplanificacion.php?clave=".$renglon[2]."'>Ver</a></td>";
 
 							    echo"</tr>";

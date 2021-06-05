@@ -73,15 +73,15 @@ if(isset($_REQUEST['m'])){
             <input type="date" class="input is-info" name="fecha"
             <?php if(isset($_REQUEST['m'])){echo "value='" .$renglon['fechaentrega']. "'";} ?>
             placeholder="Fecha" required>
+						<?php if(isset($_REQUEST['m'])){echo "<input type='hidden' name='modificar' value='".$_REQUEST['m']."'>";} ?>
+						<br><br>
+						<input type="submit" name ="submit" class="button is-success"
+						<?php if(isset($_REQUEST['m'])){echo "value='Guardar'";}else{echo "value='Crear'";} ?>>
 
-        </div><br>
-          <?php if(isset($_REQUEST['m'])){echo "<input type='hidden' name='modificar' value='".$_REQUEST['m']."'>";} ?>
-        <div class="control">
-          <input type="submit" name ="submit" class="button is-success"
-          <?php if(isset($_REQUEST['m'])){echo "value='Guardar'";}else{echo "value='Crear'";} ?>>
+        </div>
 
-          <a class="button is-link" href='crearclase.php'>Volver</a>
-          </div>
+
+
           </form>
 
           <?php
@@ -98,14 +98,16 @@ if(isset($_REQUEST['m'])){
 						{
 
 						echo "<br>";
-						echo "<h1 style='text-align: left;'>".$renglon['titulo']."</h1>";
-						echo "<p>".$renglon['texto']."</p>";
+						echo " <div class='box is-fluid'>";
+						echo "<h1 style='text-align: left;'><strong>".$renglon['titulo']."</strong></h1>";
+						echo "<strong><p>Descripción: ".$renglon['texto']."</p></strong>";
 						echo "<p>Fecha de publicación: ".$renglon['fecha']."</p>";
-						echo "<p>Fecha final de entrega: ".$renglon['fechaentrega']."</p>";
+						echo "<p style='color: red;'>Fecha final de entrega: ".$renglon['fechaentrega']."</p>";
+
 						echo "<hr>";
 						//  echo "<td>".$renglon[2]."</td>";
-						echo "<a class='button is-primary' href='planificacion.php?e=".$renglon['id']."'>Eliminar</a>&nbsp&nbsp<a class='button is-primary' href='planificacion.php?m=".$renglon['id']."'>Modificar</a>";
-
+						echo "<a class='button is-primary' href='planificacion.php?m=".$renglon['id']."'>Modificar</a>&nbsp&nbsp<a class='button is-danger' href='planificacion.php?e=".$renglon['id']."'>Eliminar</a>";
+							echo "</div>";
 
 						$vezes++;
 
@@ -115,8 +117,9 @@ if(isset($_REQUEST['m'])){
 
 						          ?>
 
-
+											<a class="button is-link" href='profesores.php'>Volver</a>
         </div>
+
   </div>
 </div>
 
