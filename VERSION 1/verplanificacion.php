@@ -56,28 +56,28 @@
           <div class = "container is-fluid">
             <h1><strong>Actividades</strong></h1>
             <div class="box is-fluid">
-              <div class = "columns">
+              <!--<div class = "columns">
                 <div class="column is-one-third">
                   <form action="verplanificacion.php" method="POST">
-                    <input type="text" class="input is-info" name="titulo"
+                    <input type="text" class="input is-info" name="titulo"-->
                     <?php if(isset($_REQUEST['m'])){echo "value='" .$renglon['titulo']. "'";} ?>
-                    placeholder="Titulo" required><br><br>
-                    <textarea class="textarea is-primary" name="texto" id=""  rows="15" placeholder="Introduce el texto" required><?php if(isset($_REQUEST['m'])){echo $renglon['texto'];} ?>
-                    </textarea><br>
+                    <!--placeholder="Titulo" required><br><br>-->
+                    <!--<textarea class="textarea is-primary" name="texto" id=""  rows="15" placeholder="Introduce el texto" required>--><?php if(isset($_REQUEST['m'])){echo $renglon['texto'];} ?>
+                    <!--</textarea><br>
                     <div class = "control">
-                    <input type="date" class="input is-info" name="fecha"
+                    <input type="date" class="input is-info" name="fecha">-->
                     <?php if(isset($_REQUEST['m'])){echo "value='" .$renglon['fechaentrega']. "'";} ?>
-                    placeholder="Fecha" required>
-                    </div><br>
+                   <!-- placeholder="Fecha" required>
+                    </div><br>-->
                     <?php if(isset($_REQUEST['m'])){echo "<input type='hidden' name='modificar' value='".$_REQUEST['m']."'>";} ?>
-                    <div class="control">
-                      <input type="submit" name ="submit" class="button is-success"
-                      <?php if(isset($_REQUEST['m'])){echo "value='Guardar'";}else{echo "value='Crear'";} ?>>
-                      <a class="button is-link" href='unirseclase.php'>Volver</a>
+                   <!-- <div class="control">
+                      <input type="submit" name ="submit" class="button is-success"-->
+                      <!--<?php if(isset($_REQUEST['m'])){echo "value='Guardar'";}else{echo "value='Crear'";} ?>-->
+                      <!--<a class="button is-link" href='unirseclase.php'>Volver</a>
                     </div>
                   </form> 
                 </div>
-              <div class = "column">
+              <div class = "column">-->
               <?php
               $queryplan = "SELECT * FROM ". $tabla ." WHERE clave=\"" . $_SESSION['clave'] . "\" ORDER BY fechaentrega ASC";
               $ac=mysqli_query($con, $queryplan) or die ("Problema con query");
