@@ -27,23 +27,31 @@ body{
 	margin-right: auto;
 	border: 1px solid gray;
 	padding: 2rem;
-	height: 43rem;
+	height: auto;	/*Correción de la altura en función de cuanta información tenga la caja de contenidos*/
+	width: auto;
 }
+
+#box-plan
+{
+	margin: auto;
+}
+
 .medium {
 	margin-left: auto;
 	margin-right: auto;
 }
 /*Aplicamos las clases que determinan ancho y alto de cada formulario en función a su contenido*/
+
 #form_login
 {
 	width: 25rem;
-	height: 25rem;
+	height: auto;
 }
 /*Formulario de registro [registro.php]*/
 #form_reg
 {
 	width: 40rem;
-	height: 35rem;
+	height: auto;
 }
 .control.has-text-centered {
 	margin-bottom: 0.4rem;
@@ -55,19 +63,19 @@ input.button.is-link {
 #form_contact
 {
 	width: 35rem;
-	height: 33rem;
+	height: auto;
 }
 /*Formulario de informar de un problema [form_problemas.php]*/
 #form_issues
 {
 	width: 25rem;
-	height: 33rem;
+	height: auto;
 }
 /*Formulario de cambio de contraseña [cambio_pass.php]*/
 #form_pass_change
 {
 	width: 25rem;
-	height: 28rem;
+	height: auto;
 }
 
 /*Estilo para el contenedor de área de trabajo de cada usuario*/

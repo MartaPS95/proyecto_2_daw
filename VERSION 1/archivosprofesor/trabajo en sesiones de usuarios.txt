@@ -1,0 +1,44 @@
+no mezclemos sesiones
+realización de pruebas:
+1- Pruebas con el profesor
+	- Registro en base de datos registro.php
+	- login en la web index.php
+	- En sesión, tenemos un menú
+		* Principal es la página de inicio dentro de la sesión del usuario
+		* Organizar clases: paso inicial de un profesor para crear su propia clase o grupo
+		--> Al crear una clase, se genera en la tabla el nombre de clase una clave aleatoria
+		--> y la posibilidad de eliminarla y de ver su planificación con botones
+		--> en planificación: permite la creación de nuevas actividades y visualiza las existentes
+		--> con sus datos correspondientes y en principal habla una tabla que muestre las clases si existen
+Ejemplo: hemos creado una clase DWEC con un codigo que proporcionará a sus alumnos para que accedan a ella.
+El profesor se va a la tabla con su clase y a "ver" planificación,
+en planificación  (planificacion.php) podrá crear una nueva actividad y ver las ya existentes. 
+Le pone un título, descripción de la tarea y una fecha de entrega. Al "crear" la actividad se guarda en planificacion en la base de datos, y las existentes será posible modificarlas o eliminarlas. Si pulso "modificar" sobre una actividad existente, me genera los datos de nuevo en el formulario con su información y el profe cambia los campos deseadosm, y le damos a "guardar", nos vuelve a mandar a la página con el formulario vacio y con el registro actualizado. Luego tenemos el botón volver que nos manda a la página "principal" donde se nos muestra el registro de clases.
+		* Documentación(documentacion.php): En esta parte, el profesor puede subir archivos a una base de datos, como serían 			--> apuntes, más tareas, resultados de examenes, etc. Todos se muestran en una tabla que permite
+		--> una vez subido un archivo, podremos descargarlo al momento o eliminarlo (revisar descargar)
+		--> el boton volver, regresa a principal
+		* Revisar tareas: Nos lleva a una página con el conjunto de actividades para los alumnos de la clase
+		--> existente, y el profesor podrá eliminarlas o revisar qué alumnos las han entregado, al pulsar 			--> sobre revisar entregas(). Si el alumno no ha entregado nada no habrá registro, en caso contrario 		(subir algo con el alumno). Cuando el alumno por su parte haya subido el archivo. El profesor podrá 		--> ver la entrega del alumno correspondiente a la actividad y con ello descargar el archivo y 		--> ponerle una nota, hecho esto, el alumno podrá ver su nota.
+2. Pruebas con el Alumno
+		* Principal(alumnos.php), que funciona igual que con profesor una tabla de clases etc
+		* Unirse a clase(unirseclase.php): tiene que escribir la clave de la clase para darse de alta, una 		--> vez la escribe se añade a la base de datos. Una vez se une, se puede dar de baja (eliminar) o ver 		--> la planificación, nos lleva a ver planificación y aquí tenemos las actividades del profesor, 		--> pulsamos sobre realizar entrega y nos lleva a una pagina donde escribiremos un comentario y 		subiremos el archivo. Una vez subido nos muestra que la tarea ha sido entregada, pudiendo descargar el archivo o eliminarlo.
+		* Mis entregas: ya sea accediendo directamente desde realizar entrega en planificación de actividades 		--> o desde el menú, muestra nuestras entregas y el estado de las mismas, si ha sido o no evaluada.
+		--> Cuando el profesor la evalue mostrará su nota. Y ya esta TODO CORRECTO
+		
+ADAPTADO PROFESOR
+profesor.php
+crearclase.php
+planificacion.php
+documentacion.php
+
+ADAPTADO ALUMNO
+alumno.php
+unirseclase.php
+verplanificacion.php
+realizarentrega.php
+verdocumentacion.php
+
+
+
+
+		

@@ -4,12 +4,14 @@
   //include ('profesores.php');
   include 'secciones/header.php';
   include 'secciones/nav_usuarios.php';
+  include 'config/conexion.php';
+  /*
   $nombre = @$_SESSION['nombre'];
   $apellidos = @$_SESSION['apellidos'];
   $email = @$_SESSION['email'];
-  $usuario = @$_SESSION['nombre'].' '.@$_SESSION['apellidos'];
+  $usuario = @$_SESSION['nombre'].' '.@$_SESSION['apellidos'];*/
   $tabla="planificacion";
-  $con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problemas con la conexión a la base de datos");
+  //$con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problemas con la conexión a la base de datos");
   if(isset($_REQUEST['clave']) && !empty($_REQUEST['clave']))
   {
     $_SESSION['clave']=$_REQUEST['clave'];
@@ -56,6 +58,7 @@
           <div class = "container is-fluid">
             <h1><strong>Actividades</strong></h1>
             <div class="box is-fluid">
+
               <!--<div class = "columns">
                 <div class="column is-one-third">
                   <form action="verplanificacion.php" method="POST">
@@ -86,12 +89,15 @@
               while($renglon = mysqli_fetch_array($ac))
               {
                 // desplegando en celda de tabla html
-                echo "<br>";
-                echo "<h1 style='text-align: left;'>".$renglon['titulo']."</h1>";
-                echo "<p>".$renglon['texto']."</p>";
-                echo "<p>Fecha de publicación: ".$renglon['fecha']."</p>";
-                echo "<p>Fecha final de entrega: ".$renglon['fechaentrega']."</p>";
-                echo "<hr>";
+                echo " <div class='notification'>";
+echo "<br>";
+echo "<h1 style='text-align: left;'><strong>".$renglon['titulo']."</strong></h1>";
+echo "<p><strong>Descripción: ".$renglon['texto']."</strong></p><br>";
+echo "<p>Fecha de publicación: ".$renglon['fecha']."</p>";
+echo "<p style='color: red;'>Fecha final de entrega: ".$renglon['fechaentrega']."</p><br>";
+echo "<p><a class='button is-primary' href='realizarentrega.php?tarea=".$renglon['id']."'>Realizar Entrega</a></p>";
+echo "</div>";
+echo "<hr>";
                 //  echo "<td>".$renglon[2]."</td>";
                 //echo "<a class='button is-primary' href='planificacion.php?e=".$renglon['id']."'>Eliminar</a>&nbsp&nbsp<a class='button is-primary' href='planificacion.php?m=".$renglon['id']."'>Modificar</a>";
                 $vezes++;
@@ -100,6 +106,7 @@
               if ($vezes == 0)
                 echo "<h1> No existe ningún registro </h1>";
               ?>
+              <a class="button is-link" href='alumno.php'>Volver</a>
               </div>
             </div>
           </div>

@@ -1,14 +1,19 @@
+<!--En este apartado el profesor sube la documentación que desee para sus alumnos y se guarda en la base de datos
+    además de mostrar un registro en una tabla que se actualizará y permitirá descargar el archivo o eliminarlo-->
 <?php
   $title = 'Educalegre Profesores';
   //Header para la página de alumnos
   include 'secciones/header.php';
   include 'secciones/nav_usuarios.php';
+  /*Incluir la base de datos desde el archivo de configuración*/
+  include_once 'config/conexion.php';
+  /*
   $nombre = @$_SESSION['nombre'];
   $apellidos = @$_SESSION['apellidos'];
   $email = @$_SESSION['email'];
-  $usuario = @$_SESSION['nombre'].' '.@$_SESSION['apellidos'];
+  $usuario = @$_SESSION['nombre'].' '.@$_SESSION['apellidos'];*/
   $tabla="archivos";
-  $con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problemas con la conexión a la base de datos");
+  //$con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problemas con la conexión a la base de datos");
   if(isset($_REQUEST['subir']) && !empty($_REQUEST['subir']))
   {
     $nombreArchivo=$_FILES['archivo']['name'];
@@ -37,13 +42,26 @@
             <div class="container is-fluid is-max-desktop">
               <h1><strong>Subir Documentación</strong></h1>
               <div class="notification">
-
-              <form action="documentacion.php" enctype="multipart/form-data" method="post">
-                <label for="archivo">Subir archivo</label><br>
-                <input type="file" name="archivo" required><br><br>
-                <input type="hidden" name="subir" value="ok">
-                <input type="submit" class='button is-primary' value="Subir archivo">
-              </form>
+                  <form action="documentacion.php" enctype="multipart/form-data" method="post">
+                    <div class = "field is-grouped">
+                      <div class="file">
+                        <label class="file-label">
+                          <input class="file-input" type="file" name="archivo" required>
+                          <span class="file-cta">
+                            <span class="file-icon">
+                              <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                              Selecciona archivo
+                            </span>
+                          </span>
+                        </label>
+                      </div>
+                      &nbsp;&nbsp;&nbsp;
+                      <input type="hidden" name="subir" value="ok">
+                      <input type="submit" class='button is-primary' value="Subir archivo">
+                    </div><br>
+                  </form>
               <?php
                 echo "<TABLE Border=10 CellPadding=5 style='margin-left: auto; margin-right: auto; font-size:18px' class = 'table is-bordered'><TR>";
 
@@ -60,7 +78,7 @@
                   echo "<td align='center'>".$renglon['tipo']."</td>";
                   echo "<td align='center'>".($renglon['tamano']/1024)."KB</td>";
                   echo "<td align='center'><a class='button is-link is-outlined' href='archivosprofesor/".$renglon['nombre']."'>Descargar</a></td>";
-                  echo "<td align='center'><a class='button is-link is-outlined' href='documentacion.php?e=".$renglon['id']."'>Eliminar</a></td>";
+                  echo "<td align='center'><a class='button is-danger is-outlined' href='documentacion.php?e=".$renglon['id']."'>Eliminar</a></td>";
 
                   echo"</tr>";
                   $vezes++;
@@ -75,7 +93,7 @@
               ?>
               </table>
               <br><br>
-              <a class="button is-link" href='profesores.php'>Volver</a>
+              <a class="button is-link" href='profesor.php'>Volver</a>
               </div>
             </div>
           </div>

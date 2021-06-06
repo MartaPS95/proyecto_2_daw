@@ -3,12 +3,14 @@ $title = 'Educalegre Alumnos';
 	//Header para la página de alumnos
 	include 'secciones/header.php';
 	include 'secciones/nav_usuarios.php';
+  include_once 'config/conexion.php';
+  /*
 	$nombre = @$_SESSION['nombre'];
     $apellidos = @$_SESSION['apellidos'];
 		$email = @$_SESSION['email'];
-		$usuario = @$_SESSION['nombre'].' '.@$_SESSION['apellidos'];
+		$usuario = @$_SESSION['nombre'].' '.@$_SESSION['apellidos'];*/
 $tabla="archivos";
-$con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problemas con la conexión a la base de datos");
+//$con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problemas con la conexión a la base de datos");
 
 
     $query2 = "SELECT * FROM " .$tabla;

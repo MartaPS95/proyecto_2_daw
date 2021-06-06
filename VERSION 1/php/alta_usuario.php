@@ -13,7 +13,6 @@
 	//Obtenemos los datos de registro:
 	$tipo_usu = $_POST['tipo_usu_section_reg'];
 	$tabla = obtenerTabla($tipo_usu);
-	echo $tabla;
 	$nombre = $_POST['nombre_reg'];
 	$ape1 = $_POST['ape1_reg'];
 	$ape2 = $_POST['ape2_reg'];

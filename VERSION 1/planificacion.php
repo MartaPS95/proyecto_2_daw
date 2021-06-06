@@ -5,12 +5,14 @@ $title = 'Educalegre Profesores';
   //include ('profesores.php');
 	include 'secciones/header.php';
 	include 'secciones/nav_usuarios.php';
+  include_once 'config/conexion.php';
+  /*
 	$nombre = @$_SESSION['nombre'];
   $apellidos = @$_SESSION['apellidos'];
   $email = @$_SESSION['email'];
-  $usuario = @$_SESSION['nombre'].' '.@$_SESSION['apellidos'];
+  $usuario = @$_SESSION['nombre'].' '.@$_SESSION['apellidos'];*/
   $tabla="planificacion";
-  $con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problemas con la conexión a la base de datos");
+  //$con=mysqli_connect("localhost","root","","educalegre_pruebas") or die("Problemas con la conexión a la base de datos");
   if(isset($_REQUEST['clave']) && !empty($_REQUEST['clave'])){
     $_SESSION['clave']=$_REQUEST['clave'];
     $clave=$_SESSION['clave'];
@@ -50,9 +52,9 @@ if(isset($_REQUEST['m'])){
 ?>
 
   <body class = "body">
-    <div class = "logged">
-      <?php include 'secciones/aside_profesor.php';?>
       <main>
+         <div class = "logged">
+          <?php include 'secciones/aside_profesor.php';?>
         <section class = "section">
           <h1><strong>Nueva Actividad</strong></h1>
             <div class="box is-fluid">
@@ -86,14 +88,15 @@ if(isset($_REQUEST['m'])){
                     while($renglon = mysqli_fetch_array($ac))
                     {
 
-                      echo "<br>";
+                      echo "<div class = notification>";
                       echo "<h1 style='text-align: left;'>".$renglon['titulo']."</h1>";
                       echo "<p>".$renglon['texto']."</p>";
                       echo "<p>Fecha de publicación: ".$renglon['fecha']."</p>";
                       echo "<p>Fecha final de entrega: ".$renglon['fechaentrega']."</p>";
                       echo "<hr>";
                       //  echo "<td>".$renglon[2]."</td>";
-                      echo "<a class='button is-primary' href='planificacion.php?e=".$renglon['id']."'>Eliminar</a>&nbsp&nbsp<a class='button is-primary' href='planificacion.php?m=".$renglon['id']."'>Modificar</a>";
+                      echo "<a class='button is-primary' href='planificacion.php?m=".$renglon['id']."'>Modificar</a>&nbsp&nbsp<a class='button is-danger' href='planificacion.php?e=".$renglon['id']."'>Eliminar</a>";
+                      echo "</div>";
                     $vezes++;
                     }
                     if ($vezes == 0)
@@ -103,8 +106,8 @@ if(isset($_REQUEST['m'])){
               </div>
             </div>
         </section>
+        </div>
       </main>
       <?php include 'secciones/footer.php';?>
-    </div>
   </body>
 </html> 

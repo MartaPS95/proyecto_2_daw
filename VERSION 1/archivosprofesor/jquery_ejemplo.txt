@@ -1,0 +1,29 @@
+function validarDatos()
+{
+	alert("Expresiones correctas");
+	$('body').ready(function () {
+
+        /*
+            Este .on nos va a server para cachar el evento submit, cuando haces click en un boton del tipo "submit" y quiere enviar el formulario, lo hago de esta forma por si tienes un required en un input o algun type="email" de HTML5 se haga la validacion antes de enviar los datos. De igual forma es buena practica hacer una validacion en el back antes de hacer cualquier cosa.
+        */
+        $('#form_login').on('submit', function () { // Nos suscribimos al evento "submit" de nuestro formulario el cual se lanzara al hacer click en un boton del tipo submit
+            var dataToSend = $(this).serialize(); //Aqui ya tenemos el contexto del formulario por eso usamos $(this)
+
+            // Despues hacemos el $.ajax
+            $.ajax({
+                method: 'POST', // Metodo a utilizar POST, GET, etc...
+                url: 'acceso.php', // URL de la pagina que recibira la petición
+                data: dataToSend, // Aqui van los datos a enviar, en este caso serializamos los campos del formulario y los asinamos a esta variable por eso solo ponemos esta variable
+                success: function (data) {
+                    console.log(data); // Este callback que se lanzara si la url 'myPage.php' responde como un status 200: OK, y lo que imprimas en php lo cachara en la variable data.
+                },
+                error: function (data) {
+                    console.log(data); // Este callback que se lanzara si la url 'myPage.php' responde con status de error, e.g. 400, 404, 500, etc...
+                }
+            });
+
+            return false; // Este return es para que no se lanze el evento submit al navegador y no brinque de pagina, si no que se queda esperando la respuesta de nuestra llamada ajax.
+        });
+
+    });
+}
