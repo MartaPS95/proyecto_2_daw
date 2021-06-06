@@ -1,0 +1,81 @@
+
+
+
+Pruebas reales:
+ALUMNO: alumno.prueba@educalegre.com pass w3Unpocodet0d0
+PROFESOR: profesor.prueba@educalegre.com pass w3Unpo<code>t0d0
+VISUALIZACIONES:
+	Nav OK
+	index ok
+	footer OK
+Inicio:
+	Verificacion regex OK
+	Verificacion required OK
+	Verificación reset OK
+	Verificacion acceso con alert OK
+	Verificación con ambos tipos de usuarios Ok
+
+Registro:
+	
+Sesion profesor:
+	Principal: 
+		- Mostrar tabla sin registros OK
+		- Mostrar tabla con registros OK
+	Organizar clases:
+		- Mostrar tablas sin registros OK
+		- Mostrar tablas con registros OK
+		- Eliminar clase OK
+		- Ir a principal con o sin clase eliminada OK
+		- Acceder a VER planificacion OK
+		PLANIFICACION:
+			- Crear actividad OK
+			- Crear actividad 2 por orden de ultima fecha OK
+			- Modificar actividad OK
+			- Eliminar actividad OK
+			- Volver a organizar clases desde modificación o creación OK		
+	Documentación:
+		- Probar required de botón archivo OK
+		- Subir un archivo y reflejar en la tabla de registros OK
+		- Descargar archivo de tabla OK
+		- Eliminar archivo OK
+		- Volver a principal desde documentación OK
+	Revisar tareas:
+		- Mostrar información de tarea generada por docente OK
+		- Volver a principal OK
+		- Eliminar tarea OK
+		- Revisar entregas de la tarea OK (verificando registro vacios o no)
+		ENTREGAS:
+			- Revisión de entrega OK
+			- Descargar archivo del alumno OK
+			- Poner nota a la tarea del alumno y mostrar mensaje OK
+Sesión del alumno:
+	Principal:
+		- Regreso desde el resto de secciones a principal OK
+		- Mostrar clases existentes o sin registros OK
+	Unirse a clase:
+		- Unirse a clase inexistente para mostrar alert OK
+		- Unirse a clase por primera vez OK
+		- Unirse a clase existente y mostrar alert OK
+		- Acceso a la sección de planificación OK
+		PLANIFICACIÓN
+			- Mostrar actividades asociadas a la clase en cuestión OK
+			- Volver a principal desde planificación OK
+			- Realizar entrega con subida de archivo (verificado required) OK
+			- Mostrar mensaje como que la tarea ha sido entregada OK
+			- Descargar archivo de tarea subido OK
+			- Eliminar tarea OK
+			- Tras eliminar tarea volver a solicitar los datos para subirla OK
+	Documentación:
+		- Visualizar tabla de archivos OK
+		- Descargar un archivo OK
+	Mis entregas:
+		- Visualizar la tareas OK
+		- Mostrar estado de evaluación de la tarea OK
+		- Descargar archivo generado en la bd correspondiente a la tarea OK
+		- Eliminar tarea desde mis entregas OK
+		- Comprobar evaluación de nota establecida por el profesor OK
+	
+
+			
+	
+	
